@@ -1,0 +1,8 @@
+
+#oc new-project qs-jakarta
+docker build -t quicksec-jakarta .
+docker tag quicksec-jakarta hyc-wassvt-team-image-registry-docker-local.artifactory.swg-devops.com/quicksec/quicksec-jakarta:java8
+docker push  hyc-wassvt-team-image-registry-docker-local.artifactory.swg-devops.com/quicksec/quicksec-jakarta:java8
+oc apply -f app-deploy.yaml
+sleep 10
+oc secrets link quicksec-jakarta  artifactory --for=pull

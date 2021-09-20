@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar-ext
+	xmlns="http://websphere.ibm.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://websphere.ibm.com/xml/ns/javaee http://websphere.ibm.com/xml/ns/javaee/ibm-ejb-jar-ext_1_0.xsd"
+	version="1.0">
+
+	<session name="DelegateBean">
+		<run-as-mode mode="CALLER_IDENTITY">
+				<method type="UNSPECIFIED" name="getMessageForClient"/>
+		</run-as-mode>
+		<run-as-mode mode="SPECIFIED_IDENTITY">
+			<specified-identity role="delegateEJBMethodLevelRunAS"/>
+			<method type="UNSPECIFIED" name="getMessageForSpecifiedUser"/>
+		</run-as-mode>
+	<!--  <run-as-mode mode="SYSTEM_IDENTITY">
+			<method type="UNSPECIFIED" name="getMessageForSystem"/>
+		</run-as-mode>-->	
+	</session>
+</ejb-jar-ext>

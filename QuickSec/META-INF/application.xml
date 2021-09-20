@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/application_7.xsd" version="7">
+  <display-name>QuickSec</display-name>
+  <module id="Module_1458076790427">
+    <web>
+      <web-uri>quickSecForm.war</web-uri>
+      <context-root>QuickSecForm</context-root>
+    </web>
+  </module>
+  <module >
+    <ejb>messengerEJB.jar</ejb>
+  </module>
+  <module>
+    <ejb>delegateEJB.jar</ejb>
+  </module>
+  <module>
+    <java>secLongRunClient.jar</java>
+  </module>
+  <module>
+    <web>
+      <web-uri>quickSecCert.war</web-uri>
+      <context-root>QuickSecCert</context-root>
+    </web>
+  </module>
+  <module>
+    <web>
+      <web-uri>quickSecBasic.war</web-uri>
+      <context-root>QuickSecBasic</context-root>
+    </web>
+    </module>
+    
+    <module>
+    <web>
+      <web-uri>quickSecCustom.war</web-uri>
+      <context-root>QuickSecCustom</context-root>
+    </web>
+    </module>
+  
+  <library-directory>lib</library-directory>
+</application>

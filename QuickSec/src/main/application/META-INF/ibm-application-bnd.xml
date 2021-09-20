@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application-bnd
+	xmlns="http://websphere.ibm.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://websphere.ibm.com/xml/ns/javaee http://websphere.ibm.com/xml/ns/javaee/ibm-application-bnd_1_0.xsd"
+	version="1.0">
+
+	 <security-role name="delegateEJBMethodLevelRunAS">
+		<user name="persona11" />
+		<run-as userid="persona11" password="{xor}Ly86LSwwMT5ubg=="/>
+	</security-role>   
+</application-bnd>

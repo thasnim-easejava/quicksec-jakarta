@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/application_7.xsd" version="7">
+  <display-name>QuickSec2Q15L</display-name>
+  <module id="Module_1458076790427">
+    <web>
+      <web-uri>quickSecForm.war</web-uri>
+      <context-root>QuickSecForm</context-root>
+    </web>
+  </module>
+  <module id="Module_1458076790428">
+    <ejb>messengerEJB.jar</ejb>
+  </module>
+  <module id="Module_1458076790429">
+    <ejb>delegateEJB.jar</ejb>
+  </module>
+  <module id="Module_1458076790430">
+    <java>secLongRunClient.jar</java>
+  </module>
+  <module id="Module_1457970491385">
+    <web>
+      <web-uri>quickSecCert.war</web-uri>
+      <context-root>QuickSecCert</context-root>
+    </web>
+  </module>
+  <module id="Module_1458076941408">
+    <web>
+      <web-uri>quickSecBasic.war</web-uri>
+      <context-root>QuickSecBasic</context-root>
+    </web>
+  </module>
+  <module id="Module_1523980585935">
+  	<web>
+  		<web-uri>quickSecCustom.war</web-uri>
+  		<context-root>QuickSecCustom</context-root>
+  	</web>
+  </module>
+  <library-directory>lib</library-directory>
+</application>

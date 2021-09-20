@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+    <persistence-unit name="MessengerEnt" transaction-type="JTA">
+    	<provider>com.ibm.websphere.persistence.PersistenceProviderImpl</provider>
+    	<jta-data-source>java:comp/env/jdbc/Messenger</jta-data-source>
+    	<class>com.ibm.ws.svt.quicksec.EJB.MessengerEnt</class>
+    	<exclude-unlisted-classes>true</exclude-unlisted-classes>
+    	<properties>
+    		<property name="openjpa.LockManager" value="pessimistic"/>
+    		<property name="openjpa.Optimistic" value="false"/>
+    		<property name="openjpa.jdbc.DBDictionary" value="db2"/>
+    		<property name="openjpa.FetchPlan.ReadLockMode" value="WRITE" /> 
+  			<property name="openjpa.jdbc.TransactionIsolation" value="read-committed" /> 			
+    	</properties>
+    </persistence-unit>
+</persistence>

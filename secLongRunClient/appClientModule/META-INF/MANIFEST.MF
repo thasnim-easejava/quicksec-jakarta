@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: delegateEJB32.jar
+Main-Class: com.ibm.ws.svt.quicksec.jclient70.javatestclient
+

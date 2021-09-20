@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+
+<application-client-bnd xmlns="http://websphere.ibm.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://websphere.ibm.com/xml/ns/javaee http://websphere.ibm.com/xml/ns/javaee/ibm-application-client-bnd_1_0.xsd" version="1.0">
+ 
+ 	<!--  added for 2Q15 but this is not used by the application as java:comp/env/ejb/delegateEJB can java:comp exists for the client on the client, not the server.  The way you are looking it up... you are routing the lookup to the server; which won't find it.   All of the java: name contexts are provided on the client itself, not the server.  The underlying support for that will re-direct the lookup to the server automatically if needed.  For example, if you did a lookup of java:<app>/<module>/<ejb>, then the java: support would not find that on the client and redirect you to a lookup of "ejb\<app>\<module>\<ejb>" on the server.   So, only use the corbaloc.... NameService when looking up EJBs directly.
+Instead, you should just be using new InitialContext().lookup("java:comp/env/ejb/delegateEJB"); I changed the lookup but the ejb reference still does not work because the client is spawning threads as explained by Tracy Burroughs. So EJB is looked up directly in the code.
+-->
+	<ejb-ref name="ejb/delegateEJB" 
+		binding-name="ejb/global/QuickSec2Q15L/delegateEJB32/DelegateBean!com.ibm.ws.svt.quicksec.EJB32.Delegate"/>
+</application-client-bnd>

@@ -1,0 +1,33 @@
+apiVersion: openliberty.io/v1beta1
+kind: OpenLibertyApplication
+metadata:
+    name: quicksec-jakarta 
+spec:
+  applicationImage: hyc-wassvt-team-image-registry-docker-local.artifactory.swg-devops.com/quicksec/quicksec-jakarta:java8 
+  createKnativeService: false
+  expose: true
+  pullPolicy: Always
+  service:
+    type: ClusterIP
+    port: 9443
+    annotations:
+      prometheus.io/scrape: 'true'
+  route:
+    termination: passthrough
+  resourceConstraints:
+    limits:
+      cpu: 256m
+      memory: 400Mi
+    requests:
+      cpu: 256m    
+  env:
+    - name: DBHost
+      value: 'db2mst-1.fyre.ibm.com'
+    - name: DBName
+      value: MSGRDB
+    - name: DBPort
+      value: "50000"
+    - name: DBUser
+      value: db2inst1
+    - name: DBPass
+      value: "letme1n2.2021Q1"

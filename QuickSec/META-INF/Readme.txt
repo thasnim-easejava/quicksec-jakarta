@@ -1,0 +1,2 @@
+02/02/2017 - Cleaned some files before checking in the code to Github
+6/6/2016 - This ear file has all the web modules. Earlier ear file had only QuickSecForm. All the remote EJB binding are set to same JVM. 

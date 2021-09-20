@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/ejb-jar_3_2.xsd" version="3.2">
+	
+	<display-name>DelegateBean</display-name>
+	  <enterprise-beans>
+		<session id="DelegateBean">
+			<display-name>delegateEJB</display-name>
+			<ejb-name>DelegateBean</ejb-name>
+		</session>
+		
+	</enterprise-beans>
+	
+	<assembly-descriptor>
+	    <security-role>
+			<description />
+			<role-name>admins</role-name>
+		</security-role>
+		<security-role>
+			<description />
+			<role-name>delegateEJBMethodLevelRunAS</role-name>
+		</security-role>
+	
+ 		<method-permission> 	
+			<role-name>admins</role-name>
+			<method>
+				<ejb-name>DelegateBean</ejb-name>
+				<method-name>getMessage</method-name>
+			</method>
+		</method-permission>
+				
+ 		<exclude-list>
+			<method>
+				<ejb-name>DelegateBean</ejb-name>
+				<method-name>getMessageForAnotherSpecifiedUser</method-name>
+			</method>
+		</exclude-list>
+	</assembly-descriptor>
+	
+</ejb-jar>
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/ejb-jar_3_2.xsd" version="3.2">
+		<enterprise-beans>
+		<session id="MessengerBean">
+			<display-name>messengerEJB</display-name>
+			<ejb-name>MessengerBean</ejb-name>
+		</session>
+		
+	</enterprise-beans>
+	<assembly-descriptor>
+	<!-- Below was added to test TX Mandatory property in Liberty. This property is
+ignored by Liberty 
+                <container-transaction>
+                <method>
+                        <ejb-name>MessengerBean</ejb-name>
+                        <method-name>getMessage</method-name>
+                        <method-params></method-params>
+                </method>
+                <trans-attribute>Mandatory</trans-attribute>
+                </container-transaction> -->
+	</assembly-descriptor>
+</ejb-jar>

@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+   <parent>
+  	<groupId>com.ibm.ws.svt.qs</groupId>
+  	<artifactId>quicksec-jee</artifactId>
+  	<relativePath>quicksec-jee</relativePath>
+  	<version>1.0-SNAPSHOT</version>
+  </parent>
+  
+  <groupId>QuickSec</groupId>
+  <artifactId>QuickSec</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>ear</packaging>
+  <description>!!!EAR resources from the root directory need to be moved under src/main/application!!!</description>
+  <build>
+    <resources>
+      <resource>
+        <directory>META-INF</directory>
+        <excludes>
+          <exclude>**/*.MF</exclude>
+        </excludes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <artifactId>maven-ear-plugin</artifactId>
+        <version>2.10</version>
+        <configuration>
+        <finalName>${project.artifactId}</finalName>
+         <fileNameMapping>no-version</fileNameMapping>
+          <version>7</version>
+          <defaultLibBundleDir>lib</defaultLibBundleDir>
+           <generateApplicationXml>false</generateApplicationXml>  
+        </configuration>      
+    
+      </plugin>
+    </plugins>
+   </build>
+  <dependencies>
+	<dependency>
+  		<groupId>secLongRunClient</groupId>
+  		<artifactId>secLongRunClient</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  		<type>app-client</type>
+  	</dependency>
+
+  	<dependency>
+  		<groupId>messengerEJB</groupId>
+  		<artifactId>messengerEJB</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  		<type>ejb</type>
+  	</dependency>
+
+  	<dependency>
+  		<groupId>delegateEJB</groupId>
+  		<artifactId>delegateEJB</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  		<type>ejb</type>
+  	</dependency>
+
+  	<dependency>
+  		<groupId>quickSecBasic</groupId>
+  		<artifactId>quickSecBasic</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  		<type>war</type>
+  	</dependency>
+  	<dependency>
+  		<groupId>quickSecForm</groupId>
+  		<artifactId>quickSecForm</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  		<type>war</type>
+  	</dependency>
+  	<dependency>
+  		<groupId>quickSecCustom</groupId>
+  		<artifactId>quickSecCustom</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  		<type>war</type>
+  	</dependency>
+  	<dependency>
+  		<groupId>quickSecCert</groupId>
+  		<artifactId>quickSecCert</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  		<type>war</type>
+  	</dependency>
+  </dependencies>
+</project>

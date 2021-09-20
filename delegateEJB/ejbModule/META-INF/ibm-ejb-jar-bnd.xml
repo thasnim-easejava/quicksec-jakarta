@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar-bnd
+        xmlns="http://websphere.ibm.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://websphere.ibm.com/xml/ns/javaee http://websphere.ibm.com/xml/ns/javaee/ibm-ejb-jar-bnd_1_0.xsd"
+        version="1.0">
+	<!-- Simple binding name not supported in Liberty but in tWAS -->
+	<session name="DelegateBean" >
+		<!-- binding when the messengerEJB is running on the same JVM -->
+	 	<ejb-ref name="com.ibm.ws.svt.quicksec.EJB3/messengerRef" binding-name="java:global/QuickSec/messengerEJB/MessengerBean!com.ibm.ws.svt.quicksec.EJB.Messenger"/> 
+        
+        <!-- binding for EJBs running on a different JVM but on localhost and port -->
+      	<!--      <ejb-ref name="messengerRef" binding-name="corbaname::localhost:2811#ejb/global/QuickSec2Q15L/messengerEJB32/MessengerBean!com.ibm.ws.svt.quicksec.EJB32.Messenger"/>   -->
+		
+        <!-- binding for EJBs running on a different JVM so host and port specified in the binding-->
+     	 <!--  <ejb-ref name="messengerRef" binding-name="corbaname::citmx1070.rtp.raleigh.ibm.com:2809#ejb/global/QuickSec2Q15L/messengerEJB32/MessengerBean!com.ibm.ws.svt.quicksec.EJB32.Messenger"/>  -->
+		
+		<!-- binding for tWAS server -->
+		<!--<ejb-ref name="messengerRef" binding-name="corbaname::blmixdev.rtp.raleigh.ibm.com:2811#cell/clusters/msgrCluster/ejb/session/MessengerBean"/> 
+		
+		<ejb-ref name="messengerRef" binding-name="corbaname::citmx1070.rtp.raleigh.ibm.com:2811#ejb/global/QuickSec855L/messengerEJB32/MessengerBean!com.ibm.ws.svt.quicksec.EJB32.Messenger"/> -->  
+				
+		<!-- This rir binding not supported on server acting as client <ejb-ref name="messengerRef" binding-name="corbaname::rir#ejb/global/QuickSec2Q15L/messengerEJB32/MessengerBean!com.ibm.ws.svt.quicksec.EJB32.Messenger"/> -->
+        
+      <!--   <ejb-ref name="messengerRef" binding-name="corbaname::citmx1072.rtp.raleigh.ibm.com:2811#ejb/global/QuickSec2Q15L/messengerEJB32/MessengerBean!com.ibm.ws.svt.quicksec.EJB32.Messenger
+    "/> --> 
+    <!-- For citmx1070  -->
+	<!-- <ejb-ref name="messengerRef" binding-name="corbaname::citmx1070.rtp.raleigh.ibm.com:2811#ejb/global/QuickSec2Q15L/messengerEJB32/MessengerBean!com.ibm.ws.svt.quicksec.EJB32.Messenger"/>  -->
+         </session> 	
+</ejb-jar-bnd>
