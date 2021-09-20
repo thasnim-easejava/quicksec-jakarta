@@ -1,0 +1,14 @@
+services: docker
+dist: xenial
+
+before_install:
+- sudo apt-get -y install git
+- docker login hyc-wassvt-team-image-registry-docker-local.artifactory.swg-devops.com -u mtamboli@us.ibm.com -p password
+- git clone git@github.ibm.com:was-svt/quicksec-jakarta.git
+- sudo apt-get -y install maven
+
+script:
+- cd quicksec-jakarta/
+- mvn clean package
+- docker build -t dguinan/dgaamainservice:latest .
+- docker push dguinan/dgaamainservice:latest
