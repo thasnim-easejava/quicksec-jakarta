@@ -38,12 +38,12 @@
     </plugins>
    </build>
   <dependencies>
-	<dependency>
+	  <!--	<dependency>
   		<groupId>secLongRunClient</groupId>
   		<artifactId>secLongRunClient</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   		<type>app-client</type>
-  	</dependency>
+	  </dependency>a-->
 
   	<dependency>
   		<groupId>messengerEJB</groupId>
