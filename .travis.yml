@@ -3,7 +3,7 @@ dist: xenial
 
 before_install:
 - sudo apt-get -y install git
-- docker login hyc-wassvt-team-image-registry-docker-local.artifactory.swg-devops.com -u mtamboli@us.ibm.com -p password
+- docker login $artifactory -u $art_user -p $art_password
 - git clone git@github.ibm.com:was-svt/quicksec-jakarta.git
 - sudo apt-get -y install maven
 
