@@ -15,4 +15,4 @@ script:
 - mvn clean package
 - docker build -t quicksec-jakarta .
 - docker tag quicksec-jakarta $artifactory/quicksec/quicksec-jakarta:latest
-- docker push  $artifactory/quicksec-jakarta:latest
+- docker push  $artifactory/quicksec/quicksec-jakarta:latest
