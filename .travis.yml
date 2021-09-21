@@ -1,6 +1,9 @@
 services: docker
 dist: xenial
 
+jdk:
+  - openjdk8
+
 before_install:
 - sudo apt-get -y install git
 - docker login $artifactory -u $art_user -p $art_password
