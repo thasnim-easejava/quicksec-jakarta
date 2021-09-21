@@ -1,0 +1,18 @@
+services: docker
+dist: xenial
+
+jdk:
+- openjdk8
+
+before_install:
+- sudo apt-get -y install git
+- docker login $artifactory -u $art_user -p $art_password
+- git clone git@github.ibm.com:was-svt/quicksec-jakarta.git
+- sudo apt-get -y install maven
+
+script:
+- cd quicksec-jakarta/
+- mvn clean package
+- docker build -t quicksec-jakarta .
+- docker tag quicksec-jakarta hyc-wassvt-team-image-registry-docker-local.artifacory.swg-devops.com/quicksec/quicksec-jakarta:latest
+- docker push  hyc-wassvt-team-image-registry-docker-local.artifactory.swg-devops.com/quicksec/quicksec-jakarta:latest
