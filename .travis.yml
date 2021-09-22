@@ -6,7 +6,7 @@ jdk:
 
 before_install:
 - sudo apt-get -y install git
-- docker login $REGISTY -u $REG_USER -p $REG_PASSWORD
+- docker login $CONT_REGISTY -u $REG_USER -p $REG_PASSWORD
 - git clone git@github.ibm.com:was-svt/quicksec-jakarta.git
 - sudo apt-get -y install maven
 
@@ -14,5 +14,5 @@ script:
 - cd quicksec-jakarta/
 - mvn clean package
 - docker build -t quicksec-jakarta .
-- docker tag quicksec-jakarta $REGISTRY/quicksec/quicksec-jakarta:latest
-- docker push  $REGISTRY/quicksec/quicksec-jakarta:latest
+- docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:latest
+- docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:latest
