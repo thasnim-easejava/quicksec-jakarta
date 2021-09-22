@@ -6,7 +6,7 @@ jdk:
 
 before_install:
 - sudo apt-get -y install git
-- docker login $artifactory -u $art_user -p $art_password
+- docker login $REGISTY -u $REG_USER -p $REG_PASSWORD
 - git clone git@github.ibm.com:was-svt/quicksec-jakarta.git
 - sudo apt-get -y install maven
 
