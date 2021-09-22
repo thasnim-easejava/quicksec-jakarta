@@ -14,5 +14,5 @@ script:
 - cd quicksec-jakarta/
 - mvn clean package
 - docker build -t quicksec-jakarta .
-- docker tag quicksec-jakarta $artifactory/quicksec/quicksec-jakarta:latest
-- docker push  $artifactory/quicksec/quicksec-jakarta:latest
+- docker tag quicksec-jakarta $REGISTRY/quicksec/quicksec-jakarta:latest
+- docker push  $REGISTRY/quicksec/quicksec-jakarta:latest
