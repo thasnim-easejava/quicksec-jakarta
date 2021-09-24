@@ -5,8 +5,8 @@ COPY  --chown=1001:0  ./QuickSec/target/QuickSec.ear /config/apps/
 #COPY  --chown=1001:0  dropins/badapp.war /config/dropins
 #COPY  --chown=1001:0  dropins/microwebapp.war /config/dropins
 #COPY  --chown=1001:0  dropins/svtMessageApp.war /config/dropins
-COPY  --chown=1001:0 server.xml /config/server.xml
-COPY  --chown=1001:0  jvm.options /config/jvm.options
+COPY  --chown=1001:0 config/server.xml /config/server.xml
+COPY  --chown=1001:0  config/jvm.options /config/jvm.options
 #COPY  --chown=1001:0 ltpa.keys /output/resources/security/ltpa.keys
 
 #DB2 files
