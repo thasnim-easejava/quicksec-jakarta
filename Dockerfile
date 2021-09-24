@@ -14,7 +14,7 @@ COPY ./db2jars /config/db2jars
 
 
 #truststore for LDAP
-#COPY  --chown=1001:0 config/trustStore.jks /config/trustStore.jks
+COPY  --chown=1001:0 config/trustStore.jks /config/trustStore.jks
 
 
 # This script will add the requested XML snippets and grow image to be fit-for-purpose

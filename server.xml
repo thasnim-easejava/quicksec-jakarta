@@ -3,10 +3,12 @@
 
 	<!-- Enable features -->
 	<featureManager>
-		<!--		<feature>appSecurity-4.0</feature> --> 
-	     <!--     <feature>transportSecurity-1.0</feature> -->
+		
      <feature>jakartaee-9.1</feature>
-     <!--     <feature>ldapRegistry-3.0</feature> -->
+
+     <!--<feature>appSecurity-4.0</feature> --> 
+     <!--<feature>transportSecurity-1.0</feature> -->
+     <!-- <feature>ldapRegistry-3.0</feature> -->
      <!--<feature>microProfile-3.3</feature>-->
      <!-- <feature>microProfile-4.1</feature> -->
 	</featureManager>
@@ -24,7 +26,7 @@
 <!-- This property was set to set custom cookie name to avoid conflict when using SSO -->
 <!--<webAppSecurity useOnlyCustomCookieName="true" ssoCookieName="mstCookie"/> -->  
  
-<!-- <ssl id="LDAPSSLSettings" keyStoreRef="ldaptruststore" trustStoreRef="ldaptruststore" />
+ <ssl id="LDAPSSLSettings" keyStoreRef="ldaptruststore" trustStoreRef="ldaptruststore" />
     <keyStore id="ldaptruststore" location="/config/trustStore.jks" type="JKS" password="passw0rd" />
 	<ldapRegistry host="isdsldap11.fyre.ibm.com" baseDN="o=ibm,c=us" port="9636" ldapType="IBM Tivoli Directory Server" id="LDAP_tdirsrv" sslEnabled="true" name="o=ldap1" sslRef="LDAPSSLSettings">
 	 <failoverServers name="isdsldapsvt backup">
@@ -32,7 +34,7 @@
 	  <server host="isdsldap31.fyre.ibm.com" port="9636"/>
 	 </failoverServers>
 	</ldapRegistry> 
--->	
+	
 <!-- Replace DB server information below to connect to your own DB server -->
         <authData id="DBAuth" password="${env.DBPasswd}" user="${env.DBUser}"/>
 
