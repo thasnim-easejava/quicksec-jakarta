@@ -8,7 +8,7 @@
      <feature>microProfile-5.0</feature> 
      <!--<feature>appSecurity-4.0</feature> --> 
      <!--<feature>transportSecurity-1.0</feature> -->
-     <!-- <feature>ldapRegistry-3.0</feature> -->
+     <feature>ldapRegistry-3.0</feature> 
      <!--<feature>microProfile-3.3</feature>-->
     
 	</featureManager>
