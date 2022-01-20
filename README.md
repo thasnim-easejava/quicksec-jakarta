@@ -7,6 +7,7 @@ Java EE version of this application is at [quicksec-jee](https://github.ibm.com/
 1. Application can be deployed to OCP cluster using app-deploy.yaml file which has the correct image loacation from artifactory. You need to make sure that `open liberty operator` is installed on the cluster first.
 1. Pre-reqs: 
   - Deploy DB2 in containers or VM. Update the variables in app-deploy.sh file
+  Use the DB2 QuickSec image
   - Server.xml is using NEST LDAP server. We can continue to use the LDAP server
 
 1. To deploy application you could use the script `./build_deploy.sh deploy` after cloning the repo.
