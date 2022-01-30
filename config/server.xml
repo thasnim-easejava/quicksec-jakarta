@@ -5,12 +5,12 @@
 	<featureManager>
 		
      <feature>jakartaee-9.1</feature>
-
+     <feature>microProfile-5.0</feature> 
      <!--<feature>appSecurity-4.0</feature> --> 
      <!--<feature>transportSecurity-1.0</feature> -->
-     <!-- <feature>ldapRegistry-3.0</feature> -->
+     <feature>ldapRegistry-3.0</feature> 
      <!--<feature>microProfile-3.3</feature>-->
-    <feature>microProfile-5.0</feature> 
+    
 	</featureManager>
 
   <httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"> 
@@ -36,10 +36,10 @@
 	</ldapRegistry> 
 	
 <!-- Replace DB server information below to connect to your own DB server -->
-        <authData id="DBAuth" password="${env.DBPasswd}" user="${env.DBUser}"/>
+        <authData id="DBAuth" password="${env.DBPass}" user="${env.DBUser}"/>
 
 	<dataSource containerAuthDataRef="DBAuth" id="Messenger" jdbcDriverRef="JDBCDriver" jndiName="jdbc/Messenger" type="javax.sql.XADataSource">
-         <properties.db2.jcc databaseName="${env.DBName}" driverType="4" password="${env.DBPort}" portNumber="${env.DBPort}" serverName="${env.DB2Host}"  />
+         <properties.db2.jcc databaseName="${env.DBName}" driverType="4" password="${env.DBPort}" portNumber="${env.DBPort}" serverName="${env.DBHost}"  />
 	</dataSource>
 
 	<jdbcDriver id="JDBCDriver">
