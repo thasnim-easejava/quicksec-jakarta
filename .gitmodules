@@ -1,0 +1,3 @@
+[submodule "sharedApps"]
+	path = sharedApps
+	url = git@github.ibm.com:was-svt/sharedApps.git

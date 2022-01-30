@@ -1,12 +1,12 @@
-apiVersion: openliberty.io/v1beta1
+apiVersion: apps.openliberty.io/v1beta2
 kind: OpenLibertyApplication
 metadata:
-    name: quicksec-jakarta 
+    name: quicksec-jakarta-latest 
 spec:
-  applicationImage: hyc-wassvt-team-image-registry-docker-local.artifactory.swg-devops.com/quicksec/quicksec-jakarta:latest 
+  applicationImage: hyc-wassvt-team-image-registry-docker-local.artifactory.swg-devops.com/quicksec/quicksec-jakarta:latest
   createKnativeService: false
   expose: true
-  replicas: 3
+  replicas: 1
   pullPolicy: Always
   pullSecret: artifactory-sec
   service:
@@ -16,12 +16,27 @@ spec:
       prometheus.io/scrape: 'true'
   route:
     termination: passthrough
+    insecureEdgeTerminationPolicy: Redirect
   resourceConstraints:
     limits:
       cpu: 256m
       memory: 400Mi
     requests:
-      cpu: 256m    
+      cpu: 256m
+    readinessProbe:
+    failureThreshold: 12
+    httpGet:
+      path: /health/ready
+      port: 9080
+    initialDelaySeconds: 60
+    periodSeconds: 2
+  livenessProbe:
+    failureThreshold: 12
+    httpGet:
+      path: /health/live
+      port: 9080
+    initialDelaySeconds: 60
+    periodSeconds: 2
   env:
     - name: DBHost
       value: 'db2mst-1.fyre.ibm.com'
