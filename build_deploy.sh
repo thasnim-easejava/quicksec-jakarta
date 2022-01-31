@@ -21,7 +21,7 @@ then
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre
 mvn clean package
 docker build -t quicksec-jakarta .
-docker tag quicksec-jakarta hyc-wassvt-team-image-registry-docker-local.artifactory.swg-devops.com/quicksec/quicksec-jakarta:java8
+docker tag quicksec-jakarta hyc-wassvt-team-image-registry-docker-local.artifactory.swg-devops.com/quicksec/quicksec-jakarta:latest
 docker push  hyc-wassvt-team-image-registry-docker-local.artifactory.swg-devops.com/quicksec/quicksec-jakarta:latest
 fi
 
