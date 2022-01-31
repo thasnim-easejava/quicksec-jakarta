@@ -8,15 +8,15 @@ before_install:
 - docker login $CONT_REGISTRY -u $REG_USER -p $REG_PASSWORD
 - git clone git@github.ibm.com:was-svt/quicksec-jakarta.git
 - cd quicksec-jakarta/
-- git submodule init
-- git submodule update
+#- git submodule init
+#- git submodule update
 
 #- git clone --recurse-submodules git@github.ibm.com:was-svt/quicksec-jakarta.git
 
 # - sudo apt-get -y install maven
 
 script:
-- cd quicksec-jakarta/
+#- cd quicksec-jakarta/
 - mvn clean package
 - docker build -t quicksec-jakarta .
 - tag=`git log --pretty=format:"%h" -1`
