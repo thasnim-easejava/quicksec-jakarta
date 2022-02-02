@@ -6,8 +6,7 @@ jdk:
 before_install:
 - sudo apt-get -y install git
 - docker login $CONT_REGISTRY -u $REG_USER -p $REG_PASSWORD
-# - git clone --ignore-submodule git@github.ibm.com:was-svt/quicksec-jakarta.git
-- git clone --recurse-submodules https://github.ibm.com:was-svt/quicksec-jakarta.git
+- git clone --ignore-submodule git@github.ibm.com:was-svt/quicksec-jakarta.git
 
 # - sudo apt-get -y install maven
 
