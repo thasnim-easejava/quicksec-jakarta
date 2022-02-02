@@ -3,6 +3,9 @@ services: docker
 jdk:
 - openjdk8
 
+git:
+- submodules: false
+
 before_install:
 - sudo apt-get -y install git
 - docker login $CONT_REGISTRY -u $REG_USER -p $REG_PASSWORD
