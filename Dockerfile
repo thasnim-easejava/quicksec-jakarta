@@ -12,7 +12,7 @@ COPY  --chown=1001:0  config/jvm.options /config/jvm.options
 RUN curl -sSf -u "$REG_USER_ID:$REG_PASSWORD" \
       -O 'https://na.artifactory.swg-devops.com/artifactory/hyc-wassvt-team-maven-local/svtMessageApp/svtMessageApp/2.0.1/svtMessageApp-2.0.1.war'	  
 
-COPY svtMessageApp-2.0.1.war /apps
+COPY  --chown=1001:0 svtMessageApp-2.0.1.war /dropins
 
 #DB2 files
 COPY ./db2jars /config/db2jars
