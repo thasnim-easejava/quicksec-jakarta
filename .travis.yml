@@ -13,7 +13,7 @@ before_install:
 script:
 - cd quicksec-jakarta/
 - mvn clean package
-- docker build -t quicksec-jakarta .
+- docker build -t quicksec-jakarta --build-arg REG_USER=$REG_USER --build-arg REG_PASSWORD=$REG_PASSWORD
 - tag=`git log --pretty=format:"%h" -1`
 - docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:$tag
 - docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:latest
