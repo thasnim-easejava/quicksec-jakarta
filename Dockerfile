@@ -12,6 +12,8 @@ COPY  --chown=1001:0  config/jvm.options /config/jvm.options
 ARG REG_USER
 ARG REG_PASSWORD
 
+# Getting svtMessageApp war file
+
 User root
 RUN mkdir -p /mytemp && cd /mytemp && curl -sSf -u "$REG_USER:$REG_PASSWORD" \
       -O 'https://na.artifactory.swg-devops.com/artifactory/hyc-wassvt-team-maven-local/svtMessageApp/svtMessageApp/2.0.1/svtMessageApp-2.0.1.war' \
