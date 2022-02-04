@@ -14,9 +14,8 @@ ARG REG_PASSWORD
 
 User root
 RUN mkdir -p /mytemp && cd /mytemp && curl -sSf -u "$REG_USER:$REG_PASSWORD" \
-      -O 'https://na.artifactory.swg-devops.com/artifactory/hyc-wassvt-team-maven-local/svtMessageApp/svtMessageApp/2.0.1/svtMessageApp-2.0.1.war'	  
-
-COPY  --chown=1001:0 /mytemp/svtMessageApp-2.0.1.war /config/dropins
+      -O 'https://na.artifactory.swg-devops.com/artifactory/hyc-wassvt-team-maven-local/svtMessageApp/svtMessageApp/2.0.1/svtMessageApp-2.0.1.war' \
+      && chown -R 1001:0 /mytemp/svtMessageApp-2.0.1.war  && mv /mytemp/svtMessageApp-2.0.1.war /config/dropins
 
 user 1001
 
