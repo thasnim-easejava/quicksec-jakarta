@@ -16,7 +16,7 @@ User root
 RUN curl -sSf -u "$REG_USER:$REG_PASSWORD" \
       -O 'https://na.artifactory.swg-devops.com/artifactory/hyc-wassvt-team-maven-local/svtMessageApp/svtMessageApp/2.0.1/svtMessageApp-2.0.1.war'	  
 
-COPY  --chown=1001:0 svtMessageApp-2.0.1.war /config/dropins
+COPY  --chown=1001:0 ./svtMessageApp-2.0.1.war /config/dropins
 
 user 1001
 
