@@ -16,6 +16,8 @@ script:
 - docker build -t quicksec-jakarta --build-arg REG_USER=$REG_USER --build-arg REG_PASSWORD=$REG_PASSWORD .
 - tag=`git log --pretty=format:"%h" -1`
 - docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:$tag
+- docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:jdk8
 - docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:latest
 - docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:$tag
 - docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:latest
+- docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:jdk8
