@@ -11,7 +11,7 @@ before_install:
 # - sudo apt-get -y install maven
 
 script:
-- cd quicksec-jakarta/
+#- cd quicksec-jakarta/
 - mvn clean package
 - docker build -t quicksec-jakarta --build-arg REG_USER=$REG_USER --build-arg REG_PASSWORD=$REG_PASSWORD .
 - tag=`git log --pretty=format:"%h" -1`
