@@ -11,7 +11,8 @@ Java EE version of this application is at [quicksec-jee](https://github.ibm.com/
 1. Application use the git commit SHA value as well as latest tag for the docker image. 
 1. SVT utility applications are added int the Dockerfile by downloading and copying to the docker image.
 1. Yaml files to deploy DB2, QuickSec application and Jmeter can be applied directly or using argoCD
-    1. DB2 and JMETER yaml files to deploy them to OCP cluster. Update jmeter yaml file to adjust threads and time of the jmeter run.
+    1. DB2 yaml file is used to deploy DB2 in containers. Make sure to have DB2 script for your application added under scripts directory at https://github.ibm.com/was-svt/db2Container. Also, pass your application in the yaml file.
+    1. Use JMETER yaml files to deploy them to OCP cluster. Update jmeter yaml file to adjust script, threads and time of the jmeter run. Jmeter image has most of the application scripts already added to the jmeter image: https://github.ibm.com/was-svt/jmeterStressContainer
     1. Quicksec pplication can be deployed to OCP cluster using app-deploy.yaml file which has the correct image loacation from artifactory. You need to make sure that `open liberty operator` is installed on the cluster first manually or using argoCD.
  
 ---------
