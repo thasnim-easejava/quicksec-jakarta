@@ -2,14 +2,19 @@
 This is the version of QuickSec which was converted to Jakarta EE using the transformation tool as per [this TER](https://github.ibm.com/websphere/system-test/issues/403). This application is being complied and run with jdk 8 as there are still issues comlping java client with java 11.
 
 Java EE version of this application is at [quicksec-jee](https://github.ibm.com/was-svt/quicksec-jee)
+ 
+ * Prerequisite: 
+   Server.xml is using NEST LDAP server. We can continue to use the LDAP server
+
 
 1. This project uses travis to build the application ear file as well create a container image. Container images are pushed to artifactory.
-1. Application can be deployed to OCP cluster using app-deploy.yaml file which has the correct image loacation from artifactory. You need to make sure that `open liberty operator` is installed on the cluster first.
-1. Pre-reqs: 
-  - Deploy DB2 in containers or VM. Update the variables in app-deploy.sh file
-  Use the DB2 QuickSec image
-  - Server.xml is using NEST LDAP server. We can continue to use the LDAP server
-
+1. Application use the git commit SHA value as well as latest tag for the docker image. 
+1. SVT utility applications are added int the Dockerfile by downloading and copying to the docker image.
+1. Yaml files to deploy DB2, QuickSec application and Jmeter can be applied directly or using argoCD
+    1. DB2 and JMETER yaml files to deploy them to OCP cluster. Update jmeter yaml file to adjust threads and time of the jmeter run.
+    1. Quicksec pplication can be deployed to OCP cluster using app-deploy.yaml file which has the correct image loacation from artifactory. You need to make sure that `open liberty operator` is installed on the cluster first manually or using argoCD.
+ 
+---------
 1. To deploy application you could use the script `./build_deploy.sh deploy` after cloning the repo.
     ```
     oc new-project quicksec
