@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jmeter-stress
+  namespace: quicksec
+  annotations:
+    argocd.argoproj.io/sync-wave: "6"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jmeter-stress
+  template:
+    metadata:
+      labels:
+        app: jmeter-stress
+    spec:
+      containers:
+        - resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          name: jmeter-stress
+          env:
+           - name: KEEP_RUNNING_TO_GET_LOGS
+             value: 'true'
+           - name: JVM_ARGS
+             value: '-Dnashorn.args=--no-deprecation-warning'
+          image: hyc-wassvt-team-image-registry-docker-local.artifactory.swg-devops.com/jmeterstress/jmeter
+          imagePullPolicy: Always
+          args: [-script,
+                  Liberty/QuickSecSlimLdap,
+                 -host,
+                  quicksec-jakarta-quicksec.apps.mst.cp.fyre.ibm.com,
+                 -appUrl,
+                  /QuickSecForm,
+                 -port,
+                  '443',
+                 -protocol,
+                  https,
+                 -duration,
+                  '3600', # seconds 1day=86400 3day=259200 5day=432000 7day=604800
+                 -threads,
+                  '10',
+                 -auth,
+                  persona1:ppersona1,
+                 -report,
+                  'true']
