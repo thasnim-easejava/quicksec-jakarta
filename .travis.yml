@@ -3,8 +3,12 @@ services: docker
 jdk:
 - openjdk8
 
+git:
+  submodules: false
+
 before_install:
-- sudo apt-get -y install git
+- git config --global url.https://$GITHUB_TOKEN@github.ibm.com/was-svt/sharedApps.insteadOf git@github.ibm.com:was-svt/sharedApps.git
+- git submodule update --init --recursive
 - docker login $CONT_REGISTRY -u $REG_USER -p $REG_PASSWORD
 # - git clone git@github.ibm.com:was-svt/quicksec-jakarta.git
 

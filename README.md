@@ -5,7 +5,7 @@ Java EE version of this application is at [quicksec-jee](https://github.ibm.com/
  
  * Prerequisite: 
    Server.xml is using NEST LDAP server. We can continue to use the LDAP server
-
+...
 
 1. This project uses travis to build the application ear file as well create a container image. Container images are pushed to artifactory.
 1. Application use the git commit SHA value as well as latest tag for the docker image. 
