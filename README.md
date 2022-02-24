@@ -16,6 +16,13 @@ Java EE version of this application is at [quicksec-jee](https://github.ibm.com/
     1. Quicksec pplication can be deployed to OCP cluster using app-deploy.yaml file which has the correct image loacation from artifactory. You need to make sure that `open liberty operator` is installed on the cluster first manually or using argoCD.
  
 ---------
+NOTE: This repo utilizes a submodule
+
+```
+git clone git@github.ibm.com:was-svt/quicksec-jakarta.git
+cd quicksec-jakarta
+git submodule update --init --recursive
+```
 1. To deploy application you could use the script `./build_deploy.sh deploy` after cloning the repo.
     ```
     oc new-project quicksec
