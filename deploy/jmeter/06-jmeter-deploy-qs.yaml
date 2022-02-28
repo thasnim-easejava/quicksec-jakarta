@@ -38,7 +38,7 @@ spec:
                  -protocol,
                   https,
                  -duration,
-                  '3600', # seconds 1day=86400 3day=259200 5day=432000 7day=604800
+                  '86400', # seconds 1day=86400 3day=259200 5day=432000 7day=604800
                  -threads,
                   '10',
                  -auth,
