@@ -25,7 +25,7 @@ spec:
       memory: 400Mi
     requests:
       cpu: 256m
-   probes:
+  probes:
     readiness:
       failureThreshold: 12
       httpGet:
