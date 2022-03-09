@@ -32,14 +32,14 @@ spec:
         path: /health/ready
         port: 9443
       initialDelaySeconds: 60
-      periodSeconds: 2
+      periodSeconds: 10
     liveness:
       failureThreshold: 12
       httpGet:
         path: /health/live
         port: 9443
       initialDelaySeconds: 60
-      periodSeconds: 2
+      periodSeconds: 10
   env:
     - name: DBHost
       value: 'qs-db2.quicksec'
