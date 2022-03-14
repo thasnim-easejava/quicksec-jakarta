@@ -18,6 +18,7 @@ spec:
     annotations:
       prometheus.io/scrape: 'true'
   route:
+    path: /QuickSecForm
     termination: passthrough  
   resources:
     limits:
