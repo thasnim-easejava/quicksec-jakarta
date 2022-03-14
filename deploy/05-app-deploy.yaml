@@ -31,14 +31,14 @@ spec:
       failureThreshold: 12
       httpGet:
         path: /health/ready
-        port: 9443
+        port: 9080
       initialDelaySeconds: 5
       periodSeconds: 10
     liveness:
       failureThreshold: 12
       httpGet:
         path: /health/live
-        port: 9443
+        port: 9080
       initialDelaySeconds: 15
       periodSeconds: 20
   env:
