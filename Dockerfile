@@ -15,17 +15,15 @@ ARG REG_PASSWORD
 # Getting svtMessageApp war file
 
 User root
+
 RUN mkdir -p /mytemp && cd /mytemp && curl -sSf -u "$REG_USER:$REG_PASSWORD" \
       -O 'https://na.artifactory.swg-devops.com/artifactory/hyc-wassvt-team-maven-local/svtMessageApp/svtMessageApp/2.0.1/svtMessageApp-2.0.1.war' \
-      && chown -R 1001:0 /mytemp/svtMessageApp-2.0.1.war  && mv /mytemp/svtMessageApp-2.0.1.war /config/dropins
-     
-RUN  cd /mytemp && curl -sSf -u "$REG_USER:$REG_PASSWORD" \
+      && curl -sSf -u "$REG_USER:$REG_PASSWORD" \
       -O 'https://na.artifactory.swg-devops.com/artifactory/hyc-wassvt-team-maven-virtual/microwebapp/microwebapp-ee9/2.0.0/microwebapp-ee9-2.0.0.war' \
-      && chown -R 1001:0 /mytemp/microwebapp-ee9-2.0.0.war  && mv /mytemp/microwebapp-ee9-2.0.0.war /config/dropins
-      
-RUN  cd /mytemp && curl -sSf -u "$REG_USER:$REG_PASSWORD" \
+      curl -sSf -u "$REG_USER:$REG_PASSWORD" \
       -O 'https://na.artifactory.swg-devops.com/ui/native/hyc-wassvt-team-maven-virtual/com/ibm/ws/lumberjack/badapp-ee9/1.0.0/badapp-ee9-2.0.0.war' \
-      && chown -R 1001:0 /mytemp/badapp-ee9-2.0.0.war  && mv /mytemp/badapp-ee9-2.0.0.war /config/dropins
+      && chown -R 1001:0 /mytemp/*.war  && mv /mytemp/*.war /config/dropins
+      
 user 1001
 
 #DB2 files
