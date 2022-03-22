@@ -1,7 +1,7 @@
 
 ARG BASE_IMAGE=icr.io/appcafe/open-liberty:kernel-slim-java8-openj9-ubi
 
-FROM BASE_IMAGE
+FROM $BASE_IMAGE
 
 COPY  --chown=1001:0  ./QuickSec/target/QuickSec.ear /config/apps/
 COPY  --chown=1001:0 config/server.xml /config/server.xml
