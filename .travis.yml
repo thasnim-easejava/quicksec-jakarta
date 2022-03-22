@@ -22,6 +22,13 @@ script:
 - docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:$tag
 - docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:jdk8
 - docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:latest
+- docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:ga
 - docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:$tag
 - docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:latest
 - docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:jdk8
+- docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:ga
+
+
+- docker build -t quicksec-jakarta -f Containerfile.ol-daily --build-arg REG_USER=$REG_USER --build-arg REG_PASSWORD=$REG_PASSWORD .
+- docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:daily
+- docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:daily
