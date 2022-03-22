@@ -18,8 +18,7 @@ spec:
     annotations:
       prometheus.io/scrape: 'true'
   route:
-    path: /QuickSecForm
-    termination: edge
+    termination: passthrough
   resources:
     limits:
       cpu: 256m
