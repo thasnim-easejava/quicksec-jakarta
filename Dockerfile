@@ -20,7 +20,7 @@ RUN mkdir -p /mytemp && cd /mytemp && curl -sSf -u "$REG_USER:$REG_PASSWORD" \
       -O 'https://na.artifactory.swg-devops.com/artifactory/hyc-wassvt-team-maven-local/svtMessageApp/svtMessageApp/2.0.1/svtMessageApp-2.0.1.war' \
       && curl -sSf -u "$REG_USER:$REG_PASSWORD" \
       -O 'https://na.artifactory.swg-devops.com/artifactory/hyc-wassvt-team-maven-virtual/microwebapp/microwebapp-ee9/2.0.0/microwebapp-ee9-2.0.0.war' \
-      curl -sSf -u "$REG_USER:$REG_PASSWORD" \
+      && curl -sSf -u "$REG_USER:$REG_PASSWORD" \
       -O 'https://na.artifactory.swg-devops.com/ui/native/hyc-wassvt-team-maven-virtual/com/ibm/ws/lumberjack/badapp-ee9/1.0.0/badapp-ee9-2.0.0.war' \
       && chown -R 1001:0 /mytemp/*.war  && mv /mytemp/*.war /config/dropins
       
