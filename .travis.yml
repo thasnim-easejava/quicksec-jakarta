@@ -29,6 +29,6 @@ script:
 - docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:ga
 
 
-- docker build -t quicksec-jakarta -f Containerfile.ol --build-arg REG_USER=$REG_USER --build-arg REG_PASSWORD=$REG_PASSWORD --build-arg BASE_IMAGE="openliberty/daily:kernel-slim-java8-openj9" .
+- docker build -t quicksec-jakarta -f Containerfile.ol --build-arg REG_USER=$REG_USER --build-arg REG_PASSWORD=$REG_PASSWORD --build-arg FULL_IMAGE=true  --build-arg BASE_IMAGE="openliberty/daily:full-java8-openj9" .
 - docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:daily
 - docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:daily
