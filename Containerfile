@@ -31,7 +31,7 @@ RUN mkdir -p /mytemp && cd /mytemp && curl -sSf -u "$REG_USER:$REG_PASSWORD" \
 user 1001
 
 #DB2 files
-COPY ./db2jars /config/db2jars
+COPY --chown=1001:0 ./db2jars /config/db2jars
 
 
 #truststore for LDAP
