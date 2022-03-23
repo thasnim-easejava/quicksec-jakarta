@@ -44,7 +44,8 @@ ARG FULL_IMAGE=false
 # This script will add the requested XML snippets to enable Liberty features and grow image to be fit-for-purpose using featureUtility. 
 # Only available in 'kernel-slim'. The 'full' tag already includes all features for convenience.
 
-RUN if [[ -z "$FULL_IMAGE" ]] ; then echo Skip running features.sh for full image ; else features.sh ; fi
+#RUN if [[ -z "$FULL_IMAGE" ]] ; then echo Skip running features.sh for full image ; else  ; fi
+RUN if [ "$FULL_IMAGE" = "true" ] ; then echo "Skip running features.sh for full image" ; else features.sh ; fi
 #RUN features.sh
 
 # Add interim fixes (optional)
