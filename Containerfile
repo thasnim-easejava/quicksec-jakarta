@@ -48,8 +48,9 @@ ARG FULL_IMAGE=false
 RUN if [ "$FULL_IMAGE" = "true" ] ; then echo "Skip running features.sh for full image" ; else features.sh ; fi
 #RUN features.sh
 
-# Add interim fixes (optional)
+# Add interim fixes for WL/OL (optional)
 COPY --chown=1001:0  interim-fixes /opt/ol/fixes/
+COPY --chown=1001:0  interim-fixes /opt/ibm/fixes/
 
 # This script will add the requested XML snippets and grow image to be fit-for-purpose
 RUN configure.sh
