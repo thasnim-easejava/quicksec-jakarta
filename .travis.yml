@@ -17,7 +17,7 @@ before_install:
 script:
 #- cd quicksec-jakarta/
 - mvn clean package
-- docker build -t quicksec-jakarta -f Containerfile.ol --build-arg REG_USER=$REG_USER --build-arg REG_PASSWORD=$REG_PASSWORD .
+- docker build -t quicksec-jakarta -f Containerfile --build-arg REG_USER=$REG_USER --build-arg REG_PASSWORD=$REG_PASSWORD .
 - tag=`git log --pretty=format:"%h" -1`
 - docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:$tag
 - docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:jdk8
@@ -29,6 +29,12 @@ script:
 - docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:ga
 
 
-- docker build -t quicksec-jakarta -f Containerfile.ol --build-arg REG_USER=$REG_USER --build-arg REG_PASSWORD=$REG_PASSWORD --build-arg FULL_IMAGE=true  --build-arg BASE_IMAGE="openliberty/daily:full-java8-openj9" .
+- docker build -t quicksec-jakarta -f Containerfile --build-arg REG_USER=$REG_USER --build-arg REG_PASSWORD=$REG_PASSWORD --build-arg FULL_IMAGE=true  --build-arg BASE_IMAGE="openliberty/daily:full-java8-openj9" .
 - docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:daily
 - docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:daily
+
+- docker build -t quicksec-jakarta -f Containerfile --build-arg REG_USER=$REG_USER --build-arg REG_PASSWORD=$REG_PASSWORD --build-arg FULL_IMAGE=true  --build-arg BASE_IMAGE="icr.io/appcafe/websphere-liberty:full-java8-openj9-ubi" .
+- docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:wl-ga
+- docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:wl-ga
+
+
