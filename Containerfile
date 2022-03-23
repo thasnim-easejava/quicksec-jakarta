@@ -21,7 +21,7 @@ ARG REG_PASSWORD
 User root
 
 RUN mkdir -p /mytemp && cd /mytemp && curl -sSf -u "$REG_USER:$REG_PASSWORD" \
-      -O 'https://na.artifactory.swg-devops.com/artifactory/hyc-wassvt-team-maven-local/svtMessageApp/svtMessageApp/2.0.1/svtMessageApp-2.0.1.war' \
+      -O 'https://na.artifactory.swg-devops.com/artifactory/hyc-wassvt-team-maven-virtual/svtMessageApp/svtMessageApp/2.0.2/svtMessageApp-2.0.2.war' \
       && curl -sSf -u "$REG_USER:$REG_PASSWORD" \
       -O 'https://na.artifactory.swg-devops.com/artifactory/hyc-wassvt-team-maven-virtual/microwebapp/microwebapp-ee9/2.0.0/microwebapp-ee9-2.0.0.war' \
       && curl -sSf -u "$REG_USER:$REG_PASSWORD" \
