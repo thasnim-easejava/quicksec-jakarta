@@ -30,7 +30,7 @@ spec:
           args: [-script,
                   Liberty/QuickSecSlimLdap,
                  -host,
-                  quicksec-jakarta-quicksec.apps.mst-argo.cp.fyre.ibm.com,
+                  quicksec-jakarta-quicksec.apps.mst10.cp.fyre.ibm.com,
                  -appUrl,
                   /QuickSecForm,
                  -port,
