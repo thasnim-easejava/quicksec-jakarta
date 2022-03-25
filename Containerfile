@@ -25,7 +25,7 @@ RUN mkdir -p /mytemp && cd /mytemp && curl -sSf -u "$REG_USER:$REG_PASSWORD" \
       && curl -sSf -u "$REG_USER:$REG_PASSWORD" \
       -O 'https://na.artifactory.swg-devops.com/artifactory/hyc-wassvt-team-maven-virtual/microwebapp/microwebapp/2.0.1/microwebapp-2.0.1.war' \
       && curl -sSf -u "$REG_USER:$REG_PASSWORD" \
-      -O 'https://na.artifactory.swg-devops.com/ui/native/hyc-wassvt-team-maven-virtual/com/ibm/ws/lumberjack/badapp/2.0.1/badapp-2.0.1.war' \
+      -O 'https://na.artifactory.swg-devops.com/artifactory/hyc-wassvt-team-maven-virtual/com/ibm/ws/lumberjack/badapp/2.0.1/badapp-2.0.1.war' \
       && chown -R 1001:0 /mytemp/*.war  && mv /mytemp/*.war /config/dropins
       
 user 1001
