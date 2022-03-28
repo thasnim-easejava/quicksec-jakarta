@@ -17,17 +17,17 @@ Java EE version of this application is at [quicksec-jee](https://github.ibm.com/
 1. SVT utility applications are added int the Containerfile by downloading the EE9 versions and copying to the docker image:
 
 ```
-https://github.ibm.com/was-svt/svtMessageApp/releases
- 
-https://github.ibm.com/was-svt/microwebapp/releases
-
-https://github.ibm.com/was-lumberjack/badapp/releases
+    https://github.ibm.com/was-svt/svtMessageApp/releases
+    https://github.ibm.com/was-svt/microwebapp/releases
+    https://github.ibm.com/was-lumberjack/badapp/releases
 ```
+ 4. DB2 repo has correct files to configure SVT DB2 contianer for QuickSec at https://github.ibm.com/was-svt/db2Container
  
-1. DB2 repo has correct files to configure SVT DB2 contianer for QuickSec at https://github.ibm.com/was-svt/db2Container
-1. Yaml files to deploy DB2, QuickSec application and Jmeter can be applied directly or using argoCD
-1. Quicksec application can be deployed to OCP cluster using app-deploy.yaml file. This file needs to be updated when using non-default ( default is to use `latest` tag) applicaiton image from artifactory. You need to make sure that `open liberty/WebSphere Liberty operator` is installed on the cluster first manually or using argoCD.
-1. Use JMETER yaml files to deploy them to OCP cluster. Update jmeter yaml file to adjust script, threads and time of the jmeter run. Jmeter image has most of the application scripts already added to the jmeter image: https://github.ibm.com/was-svt/jmeterStressContainer
+ 5. Yaml files to deploy DB2, QuickSec application and Jmeter can be applied directly or using argoCD
+ 
+ 6. Quicksec application can be deployed to OCP cluster using app-deploy.yaml file. This file needs to be updated when using non-default ( default is to use `latest` tag) applicaiton image from artifactory. You need to make sure that `open liberty/WebSphere Liberty operator` is installed on the cluster first manually or using argoCD
+  
+ 7. Use JMETER yaml files to deploy them to OCP cluster. Update jmeter yaml file to adjust script, threads and time of the jmeter run. Jmeter image has most of the application scripts already added to the jmeter image: https://github.ibm.com/was-svt/jmeterStressContainer
 
 URLs: As we want to use different context roots for the application including utility applications, app-deploy.yaml is not using path to add context root to the route. 
 
