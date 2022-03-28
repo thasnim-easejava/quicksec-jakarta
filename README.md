@@ -14,17 +14,20 @@ Java EE version of this application is at [quicksec-jee](https://github.ibm.com/
    *  Open Liberty daily full image at docker hub (openliberty/daily:full-java8-openj9): tags is `daily`
    *  WebSphere Liberty full ga image (icr.io/appcafe/websphere-liberty:full-java8-openj9-ubi): tag is `wl-ga`
    *  It also use the git commit SHA value to roll back to previous images which match to a specific commit of git. Make sure not to have too many of these images and delete some time to time. 
-3. SVT utility applications are added int the Containerfile by downloading the EE9 versions and copying to the docker image. 
+1. SVT utility applications are added int the Containerfile by downloading the EE9 versions and copying to the docker image:
+
+```
 https://github.ibm.com/was-svt/svtMessageApp/releases
  
 https://github.ibm.com/was-svt/microwebapp/releases
 
 https://github.ibm.com/was-lumberjack/badapp/releases
+```
  
-6. DB2 repo has correct files to configure SVT DB2 contianer for QuickSec at https://github.ibm.com/was-svt/db2Container
-7. Yaml files to deploy DB2, QuickSec application and Jmeter can be applied directly or using argoCD
-8. Quicksec application can be deployed to OCP cluster using app-deploy.yaml file. This file needs to be updated when using non-default ( default is to use `latest` tag) applicaiton image from artifactory. You need to make sure that `open liberty/WebSphere Liberty operator` is installed on the cluster first manually or using argoCD.
-9. Use JMETER yaml files to deploy them to OCP cluster. Update jmeter yaml file to adjust script, threads and time of the jmeter run. Jmeter image has most of the application scripts already added to the jmeter image: https://github.ibm.com/was-svt/jmeterStressContainer
+1. DB2 repo has correct files to configure SVT DB2 contianer for QuickSec at https://github.ibm.com/was-svt/db2Container
+1. Yaml files to deploy DB2, QuickSec application and Jmeter can be applied directly or using argoCD
+1. Quicksec application can be deployed to OCP cluster using app-deploy.yaml file. This file needs to be updated when using non-default ( default is to use `latest` tag) applicaiton image from artifactory. You need to make sure that `open liberty/WebSphere Liberty operator` is installed on the cluster first manually or using argoCD.
+1. Use JMETER yaml files to deploy them to OCP cluster. Update jmeter yaml file to adjust script, threads and time of the jmeter run. Jmeter image has most of the application scripts already added to the jmeter image: https://github.ibm.com/was-svt/jmeterStressContainer
 
 URLs: As we want to use different context roots for the application including utility applications, app-deploy.yaml is not using path to add context root to the route. 
 
@@ -39,13 +42,13 @@ https://quicksec-jakarta-quicksec.apps.mst10.cp.fyre.ibm.com/QuickSecBaisc/
 
 **Utility apps**
 
-https://quicksec-jakarta-qs.apps.mst10.cp.fyre.ibm.com/svtMessageApp/printMessage?message=mstmsg
+   https://quicksec-jakarta-qs.apps.mst10.cp.fyre.ibm.com/svtMessageApp/printMessage?message=mstmsg
 
-https://quicksec-jakarta-qs.apps.mst10.cp.fyre.ibm.com/badapp/Angry
+   https://quicksec-jakarta-qs.apps.mst10.cp.fyre.ibm.com/badapp/Angry
 
-https://quicksec-jakarta-qs.apps.mst10.cp.fyre.ibm.com/microwebapp/
+   https://quicksec-jakarta-qs.apps.mst10.cp.fyre.ibm.com/microwebapp/
 
- 
+
 ---------
 
 NOTE: This repo does not utilizes submodule anymore. Below commands are kept for reference in future if submodule is used.
