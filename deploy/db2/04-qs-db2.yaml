@@ -29,8 +29,6 @@ spec:
               value: db2passwd
             - name: LICENSE
               value: accept
-            - name: DBNAME
-              value: MSGRDB
             - name: APP
               value: quicksec
           securityContext:
