@@ -25,12 +25,17 @@ spec:
              value: 'true'
            - name: JVM_ARGS
              value: '-Dnashorn.args=--no-deprecation-warning'
+           - name: HOST
+             valueFrom:
+                configMapKeyRef:
+                  name: jmeter-route
+                  key: app-route
           image: hyc-wassvt-team-image-registry-docker-local.artifactory.swg-devops.com/jmeterstress/jmeter
           imagePullPolicy: Always
           args: [-script,
                   Liberty/QuickSecSlimLdap,
                  -host,
-                  quicksec-jakarta-quicksec.apps.mst10.cp.fyre.ibm.com,
+                  $(HOST),
                  -appUrl,
                   /QuickSecForm,
                  -port,
