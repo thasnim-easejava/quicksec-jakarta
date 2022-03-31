@@ -22,9 +22,10 @@ spec:
   resources:
     limits:
       cpu: 256m
-      memory: 400Mi
+      memory: 600Mi
     requests:
-      cpu: 256m
+      cpu: 128m
+      memory: 400Mi
   probes:
     readiness:
       failureThreshold: 12
