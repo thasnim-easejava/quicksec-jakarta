@@ -9,6 +9,8 @@ spec:
   applicationImage: hyc-wassvt-team-image-registry-docker-local.artifactory.swg-devops.com/quicksec/quicksec-jakarta:latest
   createKnativeService: false
   expose: true
+  serviceability:
+    size: 2Gi  
   replicas: 1
   pullPolicy: Always
   pullSecret: pull-secret
