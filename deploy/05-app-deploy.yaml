@@ -12,6 +12,10 @@ spec:
   serviceability:
     size: 2Gi  
   replicas: 1
+  autoscaling:
+    minReplicas: 1
+    maxReplicas: 3
+    targetCPUUtilizationPercentage: 80
   pullPolicy: Always
   service:
     type: ClusterIP
