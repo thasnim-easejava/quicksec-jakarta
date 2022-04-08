@@ -18,7 +18,7 @@ spec:
       initContainers:
       - name: delay-jmeter
         image: hyc-wassvt-team-image-registry-docker-local.artifactory.swg-devops.com/jmeterstress/jmeter
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         command: ['sh', '-c', 'sleep 180'] # sleep for 3 minutes 
       containers:
         - resources: {}
