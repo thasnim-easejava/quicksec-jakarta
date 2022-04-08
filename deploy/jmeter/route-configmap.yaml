@@ -32,7 +32,6 @@ spec:
               set -x
               result=0
               route=$(oc get route quicksec-jakarta -o jsonpath='{.spec.host}')
-              oc delete configmap jmeter-route
-              oc create configmap jmeter-route --from-literal=app-route=$route
+              oc create configmap jmeter-route --from-literal=app-route=$route --dry-run=client -o json|oc apply -f -
       restartPolicy: Never
       serviceAccountName:  runneracct
