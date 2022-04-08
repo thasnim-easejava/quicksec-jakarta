@@ -4,6 +4,7 @@ metadata:
   name: quicksec-jmeter-config
   annotations:
     argocd.argoproj.io/hook: Sync
+    argocd.argoproj.io/sync-wave: "6"
 spec:
   template:
     spec:
