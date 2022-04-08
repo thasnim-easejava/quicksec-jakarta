@@ -21,8 +21,6 @@ spec:
   service:
     type: ClusterIP
     port: 9443
-    annotations:
-      prometheus.io/scrape: 'true'
   route:
     termination: passthrough
   resources:
