@@ -14,10 +14,10 @@ spec:
           imagePullPolicy: IfNotPresent
           resources:
             requests:
-              memory: "64Mi"
+              memory: "200Mi"
               cpu: "150m"
             limits:
-              memory: "200Mi"
+              memory: "400Mi"
               cpu: "400m"
           env:
             - name: ARGOCD_APP_NAMESPACE
