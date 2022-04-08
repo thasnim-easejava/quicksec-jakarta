@@ -19,7 +19,7 @@ spec:
       - name: delay-jmeter
         image: hyc-wassvt-team-image-registry-docker-local.artifactory.swg-devops.com/jmeterstress/jmeter
         imagePullPolicy: IfNotPresent
-        command: ['sh', '-c', 'Jmeter sleeping for 180s before starting stress run; sleep 180; '] # sleep for 3 minutes 
+        command: ['sh', '-c', 'echo Jmeter sleeping for 180s before starting stress run && sleep 180'] # sleep for 3 minutes 
       containers:
         - resources: {}
           terminationMessagePath: /dev/termination-log
