@@ -17,8 +17,8 @@ spec:
               memory: "64Mi"
               cpu: "150m"
             limits:
-              memory: "64Mi"
-              cpu: "200m"
+              memory: "200Mi"
+              cpu: "400m"
           env:
             - name: ARGOCD_APP_NAMESPACE
               value: $ARGOCD_APP_NAMESPACE
