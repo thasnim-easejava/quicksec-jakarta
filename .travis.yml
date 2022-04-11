@@ -25,7 +25,7 @@ script:
 - docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:ga
 - docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:$tag
 - docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:latest
-- docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:jdk8
+- docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:jdk
 - docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:ga
 
 
@@ -37,4 +37,10 @@ script:
 - docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:wl-ga
 - docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:wl-ga
 
+- docker build -t quicksec-jakarta -f Containerfile --build-arg REG_USER=$REG_USER --build-arg REG_PASSWORD=$REG_PASSWORD --build-arg FULL_IMAGE=true  --build-arg BASE_IMAGE="icr.io/appcafe/open-liberty:kernel-slim-java11-openj9-ubi" .
+- docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:jdk8-java11
+- docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:jdk8-java11
 
+- docker build -t quicksec-jakarta -f Containerfile --build-arg REG_USER=$REG_USER --build-arg REG_PASSWORD=$REG_PASSWORD --build-arg FULL_IMAGE=true  --build-arg BASE_IMAGE="icr.io/appcafe/open-liberty:kernel-slim-java17-openj9-ubi" .
+- docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:jdk8-java17
+- docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:jdk8-java17
