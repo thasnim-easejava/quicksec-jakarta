@@ -1,7 +1,7 @@
-apiVersion: liberty.websphere.ibm.com/v1
-kind: WebSphereLibertyApplication
+apiVersion: apps.openliberty.io/v1beta2
+kind: OpenLibertyApplication
 metadata:
-    name: quicksec-jakarta
+    name: quicksec-ee9-testignore
     namespace: quicksec
     annotations:
       argocd.argoproj.io/sync-wave: "5"
