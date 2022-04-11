@@ -25,9 +25,13 @@ script:
 - docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:ga
 - docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:$tag
 - docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:latest
-- docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:jdk
+- docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:jdk8
 - docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:ga
 
+# Pass variables from travis to create docker image from any base image and custom tag it 
+- docker build -t quicksec-jakarta -f Containerfile --build-arg REG_USER=$REG_USER --build-arg REG_PASSWORD=$REG_PASSWORD --build-arg FULL_IMAGE=true  --build-arg BASE_IMAGE=$BASE_IMAGE .
+- docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:$IMAGE_TAG
+- docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:$IMAGE_TAG
 
 - docker build -t quicksec-jakarta -f Containerfile --build-arg REG_USER=$REG_USER --build-arg REG_PASSWORD=$REG_PASSWORD --build-arg FULL_IMAGE=true  --build-arg BASE_IMAGE="openliberty/daily:full-java8-openj9" .
 - docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:daily
