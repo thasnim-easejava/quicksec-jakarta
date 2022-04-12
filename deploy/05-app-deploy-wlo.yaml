@@ -15,9 +15,9 @@ spec:
   statefulSet: {}
   createKnativeService: false
   expose: true
-  serviceability:
-    size: 2Gi
-    storageClassName: rook-cephfs
+  #serviceability:
+  #  size: 2Gi
+  #  storageClassName: rook-cephfs
   replicas: 1
   autoscaling:
     minReplicas: 1
