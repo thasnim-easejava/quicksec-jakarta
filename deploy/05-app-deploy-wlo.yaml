@@ -16,7 +16,8 @@ spec:
   createKnativeService: false
   expose: true
   serviceability:
-    size: 2Gi  
+    size: 2Gi
+    storageClassName: rook-cephfs
   replicas: 1
   autoscaling:
     minReplicas: 1
