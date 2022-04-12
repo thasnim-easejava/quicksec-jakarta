@@ -1,7 +1,7 @@
 apiVersion: liberty.websphere.ibm.com/v1
 kind: WebSphereLibertyApplication
 metadata:
-    name: quicksec-jakarta
+    name: quicksec-jakarta-wlo
     namespace: quicksec
     annotations:
       argocd.argoproj.io/sync-wave: "5"
