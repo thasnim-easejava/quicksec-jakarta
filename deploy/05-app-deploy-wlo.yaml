@@ -11,7 +11,8 @@ spec:
     edition: IBM WebSphere Application Server
     productEntitlementSource: Standalone
     metric: Virtual Processor Core (VPC)
-  applicationImage: hyc-wassvt-team-image-registry-docker-local.artifactory.swg-devops.com/quicksec/quicksec-jakarta:latest
+  #applicationImage: hyc-wassvt-team-image-registry-docker-local.artifactory.swg-devops.com/quicksec/quicksec-jakarta:latest
+  applicationImage: hyc-wassvt-team-image-registry-docker-local.artifactory.swg-devops.com/quicksec/quicksec-jakarta-ee9:java8
   statefulSet: {}
   createKnativeService: false
   expose: true
