@@ -2,7 +2,6 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: argo-qs-admin
-  namespace: quicksec
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 subjects:
@@ -18,7 +17,6 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: quicksec-role-binding
-  namespace: quicksec
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 roleRef:
@@ -34,7 +32,6 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: argo-qs-admin2
-  namespace: quicksec
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 subjects:
@@ -50,7 +47,6 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: quicksec-role-binding2
-  namespace: quicksec
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 roleRef:
