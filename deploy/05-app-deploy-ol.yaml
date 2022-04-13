@@ -2,7 +2,6 @@ apiVersion: apps.openliberty.io/v1beta2
 kind: OpenLibertyApplication
 metadata:
     name: quicksec-jakarta
-    namespace: quicksec
     annotations:
       argocd.argoproj.io/sync-wave: "5"
 spec:
