@@ -8,11 +8,6 @@ metadata:
 spec:
   template:
     spec:
-      initContainers:
-      - name: delay-jmeter
-        image: hyc-wassvt-team-image-registry-docker-local.artifactory.swg-devops.com/jmeterstress/jmeter
-        imagePullPolicy: IfNotPresent
-        command: ['sh', '-c', 'sleep 300'] # sleep for 5 minutes before starting stress run 
       containers:
         - name: config
           image: quay.io/openshift/origin-cli:latest

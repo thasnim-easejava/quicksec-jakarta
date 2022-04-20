@@ -2,7 +2,6 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: qs-db2
-  namespace: quicksec
   annotations:
     argocd.argoproj.io/sync-wave: "4"
   labels:
