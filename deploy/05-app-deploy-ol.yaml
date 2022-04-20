@@ -46,7 +46,7 @@ spec:
       periodSeconds: 20
   env:
     - name: DBHost
-      value: 'qs-db2.quicksec'
+      value: 'qs-db2'
     - name: DBName
       value: MSGRDB
     - name: DBPort
