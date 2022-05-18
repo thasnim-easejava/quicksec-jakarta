@@ -4,6 +4,6 @@
 -verbose:gc
 -Xdump:heap
 -Xaggressive
--Xverbosegclog:/logs/verbosegc.log,200,10000
+-Xverbosegclog:/logs/verbosegc.log,1,1000000
 -verbose:sizes
 
