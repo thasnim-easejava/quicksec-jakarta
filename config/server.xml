@@ -2,16 +2,14 @@
 <!-- It is ok to use the below LDAP server but make sure to use the correct trust store so that LDAP connection can be on SSL -->
 
 	<!-- Enable features -->
-	<featureManager>
+    <featureManager>
 		
    <!--  <feature>jakartaee-9.1</feature> -->
-     <feature>microProfile-5.0</feature> 
-     <!--<feature>appSecurity-4.0</feature> --> 
+     <feature>microProfile-6.0</feature> 
+     <feature>appSecurity-5.0</feature> --> 
      <!--<feature>transportSecurity-1.0</feature> -->
      <feature>ldapRegistry-3.0</feature> 
-     <!--<feature>microProfile-3.3</feature>-->
-    
-	</featureManager>
+   </featureManager>
 
   <httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"> 
     <tcpOptions soReuseAddr="true"/> 
