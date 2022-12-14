@@ -5,6 +5,8 @@
     <featureManager>
 		
    <!--  <feature>jakartaee-9.1</feature> -->
+     <feature>jakartaee-10.0</feature>
+
      <feature>microProfile-6.0</feature> 
      <feature>appSecurity-5.0</feature> --> 
      <!--<feature>transportSecurity-1.0</feature> -->
