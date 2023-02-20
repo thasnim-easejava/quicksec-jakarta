@@ -16,32 +16,33 @@ before_install:
 
 script:
 #- cd quicksec-jakarta/
+- HYCSVT="$CONT_REGISTRY/hyc-wassvt-team-image-registry-docker-local"
 - mvn clean package
 
 
 # Pass variables from travis to create docker image from any base image and custom tag it 
 - docker build -t quicksec-jakarta -f Containerfile --build-arg REG_USER=$REG_USER --build-arg REG_PASSWORD=$REG_PASSWORD --build-arg FULL_IMAGE=true  --build-arg BASE_IMAGE=$BASE_IMAGE .
-- docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:$IMAGE_TAG
-- docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:$IMAGE_TAG
+- docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:$IMAGE_TAG
+- docker push  $HYCSVT/quicksec/quicksec-jakarta:$IMAGE_TAG
 
 #- docker build -t quicksec-jakarta -f Containerfile --build-arg REG_USER=$REG_USER --build-arg REG_PASSWORD=$REG_PASSWORD --build-arg FULL_IMAGE=true  --build-arg BASE_IMAGE="openliberty/daily:full-java8-openj9" .
-#- docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:ol-daily
-#- docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:ol-daily
+#- docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:ol-daily
+#- docker push  $HYCSVT/quicksec/quicksec-jakarta:ol-daily
 
 # Build and tag application based on WebnSphere Liberty with latest java versions
 - docker build -t quicksec-jakarta -f Containerfile --build-arg REG_USER=$REG_USER --build-arg REG_PASSWORD=$REG_PASSWORD --build-arg FULL_IMAGE=true  --build-arg BASE_IMAGE="icr.io/appcafe/websphere-liberty:full-java17-openj9-ubi" .
-- docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:wl-jdk8-java17
-- docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:wl-jdk8-java17
+- docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:wl-jdk8-java17
+- docker push  $HYCSVT/quicksec/quicksec-jakarta:wl-jdk8-java17
 
 # Build and tag application based on Open Liberty with different java versions
 - docker build -t quicksec-jakarta -f Containerfile --build-arg REG_USER=$REG_USER --build-arg REG_PASSWORD=$REG_PASSWORD --build-arg FULL_IMAGE=false  --build-arg BASE_IMAGE="icr.io/appcafe/open-liberty:kernel-slim-java8-openj9-ubi" .
-- docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:ol-jdk8-java8
-- docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:ol-jdk8-java8
+- docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:ol-jdk8-java8
+- docker push  $HYCSVT/quicksec/quicksec-jakarta:ol-jdk8-java8
 
 - docker build -t quicksec-jakarta -f Containerfile --build-arg REG_USER=$REG_USER --build-arg REG_PASSWORD=$REG_PASSWORD --build-arg FULL_IMAGE=false  --build-arg BASE_IMAGE="icr.io/appcafe/open-liberty:kernel-slim-java11-openj9-ubi" .
-- docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:ol-jdk8-java11
-- docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:ol-jdk8-java11
+- docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:ol-jdk8-java11
+- docker push  $HYCSVT/quicksec/quicksec-jakarta:ol-jdk8-java11
 
 - docker build -t quicksec-jakarta -f Containerfile --build-arg REG_USER=$REG_USER --build-arg REG_PASSWORD=$REG_PASSWORD --build-arg FULL_IMAGE=false  --build-arg BASE_IMAGE="icr.io/appcafe/open-liberty:kernel-slim-java17-openj9-ubi" .
-- docker tag quicksec-jakarta $CONT_REGISTRY/quicksec/quicksec-jakarta:ol-jdk8-java17
-- docker push  $CONT_REGISTRY/quicksec/quicksec-jakarta:ol-jdk8-java17
+- docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:ol-jdk8-java17
+- docker push  $HYCSVT/quicksec/quicksec-jakarta:ol-jdk8-java17
