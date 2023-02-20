@@ -5,7 +5,7 @@ metadata:
     annotations:
       argocd.argoproj.io/sync-wave: "5"
 spec:
-  applicationImage: hyc-wassvt-team-image-registry-docker-local.artifactory.swg-devops.com/quicksec/quicksec-jakarta:latest
+  applicationImage: docker-na-public.artifactory.swg-devops.com/hyc-wassvt-team-image-registry-docker-local/quicksec/quicksec-jakarta:latest
   statefulSet: {}
   createKnativeService: false
   expose: true
