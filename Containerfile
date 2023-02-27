@@ -20,7 +20,7 @@ ARG REG_PASSWORD
 
 User root
 
-RUN RUN --mount=type=secret,id=token --mount=type=secret,id=user\
+RUN --mount=type=secret,id=token --mount=type=secret,id=user\
        mkdir -p /mytemp && cd /mytemp \
        && curl --retry 7 -sSf -u $(cat /run/secrets/user):$(cat /run/secrets/token) \
       -O 'https://na.artifactory.swg-devops.com/artifactory/hyc-wassvt-team-maven-virtual/svtMessageApp/svtMessageApp/2.0.2/svtMessageApp-2.0.2.war' \
