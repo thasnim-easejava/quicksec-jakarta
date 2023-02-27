@@ -13,8 +13,6 @@ COPY  --chown=1001:0  config/jvm.options /config/jvm.options
 # COPY  --chown=1001:0  sharedApps/svtMessageApp.war /config/dropins
 #COPY  --chown=1001:0 ltpa.keys /output/resources/security/ltpa.keys
 
-ARG REG_USER
-ARG REG_PASSWORD
 
 # Getting war files for utility applications
 
