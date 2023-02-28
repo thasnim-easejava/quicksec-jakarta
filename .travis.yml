@@ -41,10 +41,10 @@ script:
 - docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:ol-jdk8-java8
 - docker push  $HYCSVT/quicksec/quicksec-jakarta:ol-jdk8-java8
 
-- docker build -t quicksec-jakarta -f Containerfile --secret id=token,src=/tmp/.token --secret id=user,src=/tmp/.user--build-arg FULL_IMAGE=false  --build-arg BASE_IMAGE="icr.io/appcafe/open-liberty:kernel-slim-java11-openj9-ubi" .
+- docker build -t quicksec-jakarta -f Containerfile --secret id=token,src=/tmp/.token --secret id=user,src=/tmp/.user --build-arg FULL_IMAGE=false  --build-arg BASE_IMAGE="icr.io/appcafe/open-liberty:kernel-slim-java11-openj9-ubi" .
 - docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:ol-jdk8-java11
 - docker push  $HYCSVT/quicksec/quicksec-jakarta:ol-jdk8-java11
 
-- docker build -t quicksec-jakarta -f Containerfile --secret id=token,src=/tmp/.token --secret id=user,src=/tmp/.user--build-arg FULL_IMAGE=false  --build-arg BASE_IMAGE="icr.io/appcafe/open-liberty:kernel-slim-java17-openj9-ubi" .
+- docker build -t quicksec-jakarta -f Containerfile --secret id=token,src=/tmp/.token --secret id=user,src=/tmp/.user --build-arg FULL_IMAGE=false  --build-arg BASE_IMAGE="icr.io/appcafe/open-liberty:kernel-slim-java17-openj9-ubi" .
 - docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:ol-jdk8-java17
 - docker push  $HYCSVT/quicksec/quicksec-jakarta:ol-jdk8-java17
