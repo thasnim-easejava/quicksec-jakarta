@@ -34,7 +34,7 @@ spec:
                 configMapKeyRef:
                   name: jmeter-route
                   key: app-route
-          image: hyc-wassvt-team-image-registry-docker-local.artifactory.swg-devops.com/jmeterstress/jmeter
+          image: docker-na-public.artifactory.swg-devops.com/hyc-wassvt-team-image-registry-docker-local/jmeterstress/jmeter
           imagePullPolicy: Always
           args: [-script,
                   Liberty/QuickSecSlimLdap,
