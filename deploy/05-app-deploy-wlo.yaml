@@ -19,7 +19,7 @@ spec:
   replicas: 1
   autoscaling:
     minReplicas: 1
-    maxReplicas: 20
+    maxReplicas: 10
     targetCPUUtilizationPercentage: 80
   pullPolicy: Always
   service:
@@ -27,15 +27,15 @@ spec:
     port: 9443
   resources:
     limits:
+      cpu: 512m
+      memory: 900Mi
+    requests:
       cpu: 256m
       memory: 600Mi
-    requests:
-      cpu: 128m
-      memory: 300Mi
-  probes:
-    readiness: {}
-    liveness: {}
-    startup: {}
+ # probes:
+ #   readiness: {}
+ #   liveness: {}
+ #   startup: {}
   env:
     - name: DBHost
       value: 'qs-db2'
