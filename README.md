@@ -8,13 +8,16 @@ Java EE version of this application is at [quicksec-jee](https://github.ibm.com/
  * Prerequisite: 
    Server.xml is using NEST LDAP server. We can continue to use the LDAP server. 
 
-1. This project uses travis to build the application ear file as well create a container image. Container images are pushed to artifactory at hyc-wassvt-team-image-registry-docker-local.artifactory.swg-devops.com/quicksec/quicksec-jakarta:`<tag>`
-1. Application builds different images based on 
-   *  Open Liberty latest GA kernel image in icr (cr.io/appcafe/open-liberty:kernel-slim-java8-openj9-ubi): tags are `latest`, `jdk8` and `ga`
-   *  Open Liberty daily full image at docker hub (openliberty/daily:full-java8-openj9): tags is `daily`
-   *  WebSphere Liberty full ga image (icr.io/appcafe/websphere-liberty:full-java8-openj9-ubi): tag is `wl-ga`
-   *  It also use the git commit SHA value to roll back to previous images which match to a specific commit of git. Make sure not to have too many of these images and delete some time to time. 
-1. SVT utility applications are added int the Containerfile by downloading the EE9 versions and copying to the docker image:
+1. This project uses travis to build the application ear file as well create a container image. Container images are pushed to artifactory at docker-na-public.artifactory.swg-devops.com/hyc-wassvt-team-image-registry-docker-local/nest-websphere-liberty/quicksec:`<tag>`. All the images for QuickSec can be found by logging into artifactory: https://na.artifactory.swg-devops.com/ui/repos/tree/General/hyc-wassvt-team-image-registry-docker-local
+3. Application builds different images based on 
+   *  Open Liberty latest GA kernel image in icr (cr.io/appcafe/open-liberty:kernel-slim-java8-openj9-ubi): tags are `latest`
+   *  Open Liberty daily full image at docker hub (openliberty/daily:full-java8-openj9): tags is `ol-jdk8-java8` 'ol-jdk8-java11' 'ol-jdk8-java17`
+   *  WebSphere Liberty full ga image (icr.io/appcafe/websphere-liberty:full-java8-openj9-ubi): tag is `wl-jdk8-java17`
+   *  WebSphere Liberty build for datagrid tag is: `wl-jdk8-java17-nest-datagrid`
+   *  You can create a custom build by providing base image in Travis and providing your own tag. Default travis tag is `travis_java17`
+   * Currently there is only one application container image for `quicksec-jakarta10:ol-jdk8-java17` 
+   *  It also use the git commit SHA value to roll back to previous images which match to a specific commit of git. Make sure not to have too many of these images and delete some time to time. - This is not done anymore to save artifactory space and we did not see need to go back to old images.
+4. SVT utility applications are added int the Containerfile by downloading the EE9 versions and copying to the docker image:
 
 ```
     https://github.ibm.com/was-svt/svtMessageApp/releases
