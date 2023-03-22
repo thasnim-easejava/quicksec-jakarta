@@ -73,8 +73,15 @@ public class QuickSecSessionForm extends HttpServlet implements Servlet {
 			out.println("<B> Last accessed time: </B> " + new Date(session.getLastAccessedTime()).toString() + "<BR>");
 			out.println("<B> Creation time: </B> " + new Date(session.getCreationTime()).toString() + "<BR>");
 			//Replacing getValueNames() and getValue() with getAttributeNames(), getAttribute() - getValueNames and getValues is deprectaed and removed
+			// Need to update String[] to Enumeration<String> object
+			Enumeration<String> attributeNames = session.getAttributeNames();
+			while (attributeNames.hasMoreElements()) {
+    				String name = attributeNames.nextElement();
+    				out.println("<b>" + name + ": </b>" + session.getAttribute(name) + "<br>");
+			}
+
 			
-			String[] vals = session.getAttributeNames();
+			/* String[] vals = session.getAttributeNames();
 			if (vals != null) {
 				out.println("<b>Session values: </B><BR>");
 				for (int i=1;i<vals.length; i++)
@@ -82,7 +89,7 @@ public class QuickSecSessionForm extends HttpServlet implements Servlet {
 					String name = vals[i];
 					out.println("<B>"+  name + ": </B> + session.getAttribute(name) + </BR> <BR>");
 				}
-			}
+			} */
 				
 		}
 		else out.println("Session object is null");
