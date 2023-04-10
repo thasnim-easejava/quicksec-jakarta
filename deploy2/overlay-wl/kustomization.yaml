@@ -6,3 +6,7 @@ metadata:
 resources:
 - ../base
 - 05-app-deploy-wlo.yaml
+patchesJson6902:
+- path: image-patch.yaml
+  target:
+    kind: WebSphereLibertyApplication
