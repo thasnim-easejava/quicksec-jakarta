@@ -1,0 +1,19 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: qs-db2
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+  labels:
+    app: qs-db2
+spec:
+  ports:
+    - name: 50000-tcp
+      protocol: TCP
+      port: 50000
+      targetPort: 50000
+  selector:
+    app: qs-db2
+    deployment: qs-db2
+  type: ClusterIP
+  sessionAffinity: None

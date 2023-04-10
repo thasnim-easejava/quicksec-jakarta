@@ -1,0 +1,49 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: qs-db2
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+  labels:
+    app: qs-db2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: qs-db2
+      deployment: qs-db2
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: qs-db2
+        deployment: qs-db2
+    spec:
+      containers:
+        - resources: {}
+          terminationMessagePath: /dev/termination-log
+          name: qs-db2
+          env:
+            - name: DB2INST1_PASSWORD
+              value: db2passwd
+            - name: LICENSE
+              value: accept
+            - name: APP
+              value: quicksec
+          securityContext:
+            capabilities:
+            privileged: true
+            readOnlyRootFilesystem: false
+            allowPrivilegeEscalation: true
+          ports:
+            - containerPort: 50000
+              protocol: TCP
+          imagePullPolicy: Always
+          terminationMessagePolicy: File
+          image: docker-na-public.artifactory.swg-devops.com/hyc-wassvt-team-image-registry-docker-local/db2/svt-db2:latest
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      serviceAccountName: mysvcacct
+      serviceAccount: mysvcacct
+      schedulerName: default-scheduler
