@@ -9,4 +9,4 @@ resources:
 patches:
 - path: image-patch.yaml
   target:
-    kind: WebSphereLibertyApplication
+    kind: OpenLibertyApplication
