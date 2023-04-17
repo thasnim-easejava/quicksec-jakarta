@@ -29,21 +29,6 @@ spec:
     requests:
       cpu: 128m
       memory: 400Mi
-  probes:
-    readiness:
-      failureThreshold: 12
-      httpGet:
-        path: /health/ready
-        port: 9080
-      initialDelaySeconds: 5
-      periodSeconds: 10
-    liveness:
-      failureThreshold: 12
-      httpGet:
-        path: /health/live
-        port: 9080
-      initialDelaySeconds: 15
-      periodSeconds: 20
   env:
     - name: DBHost
       value: 'qs-db2'
