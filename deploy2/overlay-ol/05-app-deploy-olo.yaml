@@ -53,7 +53,7 @@ spec:
       value: "50000"
     - name: DBUser
       value: db2inst1
-    - name: dbPass
+    - name: DBPass
       valueFrom:
         secretKeyRef:
           name: db-credential
