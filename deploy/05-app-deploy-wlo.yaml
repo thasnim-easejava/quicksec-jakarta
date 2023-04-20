@@ -32,10 +32,10 @@ spec:
     requests:
       cpu: 256m
       memory: 600Mi
- # probes:
- #   readiness: {}
- #   liveness: {}
- #   startup: {}
+  probes:
+   readiness: {}
+   liveness: {}
+   startup: {}
   env:
     - name: DBHost
       value: 'qs-db2'
