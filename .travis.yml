@@ -7,7 +7,7 @@ git:
   submodules: false
 
 before_install:
-#- git config --global url.https://$GITHUB_TOKEN@github.ibm.com/was-svt/sharedApps.insteadOf git@github.ibm.com:was-svt/sharedApps.git
+- git config --global url.https://$GITHUB_TOKEN@github.ibm.com/was-svt/sharedApps.insteadOf git@github.ibm.com:was-svt/sharedApps.git
 - echo -e "\n\nmachine github.ibm.com\n login $GITHUB_TOKEN\n" >~/.netrc
 - git submodule update --init --recursive
 - docker login $CONT_REGISTRY -u $REG_USER -p $REG_PASSWORD
