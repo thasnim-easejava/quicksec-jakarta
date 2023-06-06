@@ -1,0 +1,52 @@
+apiVersion: liberty.websphere.ibm.com/v1
+kind: WebSphereLibertyApplication
+metadata:
+    name: quicksec-jakarta
+    annotations:
+      argocd.argoproj.io/sync-wave: "5"
+spec:
+  license:
+    accept: true
+  applicationImage: docker-na-public.artifactory.swg-devops.com/hyc-wassvt-team-image-registry-docker-local/quicksec/quicksec-jakarta:latest
+  statefulSet: 
+    storage:
+      size: 2Gi
+      mountPath: "/logs"
+  createKnativeService: false
+  expose: true
+  serviceability:
+    size: 2Gi  
+  replicas: 1
+  autoscaling:
+    minReplicas: 1
+    maxReplicas: 10
+    targetCPUUtilizationPercentage: 80
+  pullPolicy: Always
+  service:
+    type: ClusterIP
+    port: 9443
+  resources:
+    limits:
+      cpu: 512m
+      memory: 900Mi
+    requests:
+      cpu: 256m
+      memory: 600Mi
+ # probes:
+ #   readiness: {}
+ #   liveness: {}
+ #   startup: {}
+  env:
+    - name: DBHost
+      value: 'qs-db2'
+    - name: DBName
+      value: MSGRDB
+    - name: DBPort
+      value: "50000"
+    - name: DBUser
+      value: db2inst1
+    - name: DBPass
+      valueFrom:
+        secretKeyRef:
+          name: db-credential
+          key: dbpw

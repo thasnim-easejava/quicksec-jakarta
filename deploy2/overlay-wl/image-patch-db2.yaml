@@ -1,0 +1,1 @@
+- {op: replace,  path: /spec/template/spec/container/image, value: "docker-na-public.artifactory.swg-devops.com/hyc-wassvt-team-image-registry-docker-local/matest2/svt-db2"
