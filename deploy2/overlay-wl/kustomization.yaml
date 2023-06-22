@@ -4,7 +4,7 @@ metadata:
   name: wl-kustomize
 
 resources:
-- ../base/db2
+- ../base
 - 05-app-deploy-wlo.yaml
 patches:
 - path: image-patch.yaml
