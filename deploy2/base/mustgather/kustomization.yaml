@@ -4,4 +4,6 @@ metadata:
   name: mustgather-kustomize
 
 resources:
-- *.yaml
+- svc.yaml
+- rb.yaml
+- mustgather-deploy.yaml
