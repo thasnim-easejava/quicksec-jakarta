@@ -6,4 +6,5 @@ metadata:
 resources:
 - db2/
 - jmeter/
+- mustgather/
 - 01-qs-rolebinding.yaml
