@@ -15,7 +15,6 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: gather-rb
-    namespace: ebuy-wlo-mustgather
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
