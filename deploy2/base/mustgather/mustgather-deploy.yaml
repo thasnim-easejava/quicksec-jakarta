@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mustgather
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+  labels:
+    app: mustgather
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mustgather
+  template:
+    metadata:
+      labels:
+        app: mustgather
+    spec:
+      serviceAccountName: gather-rb
+      containers:
+        - resources: {}
+          name: mustgather
+          image: docker-na-public.artifactory.swg-devops.com/hyc-wassvt-team-image-registry-docker-local/mustgather:latest
+          securityContext:
+            runAsUser: 0
+          ports:
+            - containerPort: 8080
+              protocol: TCP
