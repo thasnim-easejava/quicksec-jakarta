@@ -1,0 +1,37 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: mustgather
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+  labels:
+    app: mustgather
+spec:
+  ports:
+    - name: mustgather
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: mustgather
+  type: ClusterIP
+  sessionAffinity: None
+status:
+  loadBalancer: {}
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: mustgather
+  labels:
+    app: mustgather
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+spec:
+  to:
+    kind: Service
+    name: mustgather
+    weight: 100
+  port:
+    targetPort: 8080
+  wildcardPolicy: None
