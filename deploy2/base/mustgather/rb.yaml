@@ -1,26 +1,69 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: log-reader
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "secrets"]
+    verbs: ["get", "watch", "list"]
+  - apiGroups: [""]
+    resources: ["pods/exec"]
+    verbs: ["create"]
+  - apiGroups: ["route.openshift.io"]
+    resources: ["routes"]
+    verbs: ["get", "watch", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: read-logs
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+subjects:
+- kind: ServiceAccount
+  name: gather-rb
+  apiGroup: ""
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: log-reader
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: gather-rb
-  namespace: openshift-config
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 ---
-kind: ClusterRoleBinding
+kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: gather-admin
+  namespace: openshift-config
+  name: list-secrets-role
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+rules:
+- apiGroups: [""]
+  resources: ["secrets"]
+  verbs: ["list", "get", "delete", "create"]
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: list-secrets-role-binding
   annotations:
     argocd.argoproj.io/sync-wave: "2"
 subjects:
-  - kind: ServiceAccount
-    name: gather-rb
-    namespace: openshift-config
+- kind: ServiceAccount
+  name: gather-rb
+  namespace: quicksec-wlo
+  apiGroup: ""
 roleRef:
+  kind: Role
+  name: list-secrets-role
   apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: admin
 ---
 kind: SecurityContextConstraints
 apiVersion: security.openshift.io/v1
