@@ -52,6 +52,7 @@ rules:
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
+  namespace: openshift-config
   name: list-secrets-role-binding
   annotations:
     argocd.argoproj.io/sync-wave: "2"
