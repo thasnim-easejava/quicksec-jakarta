@@ -5,7 +5,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "4"
   labels:
-    app: quicksec_mustgather
+    app: mustgather
 spec:
   replicas: 1
   selector:
