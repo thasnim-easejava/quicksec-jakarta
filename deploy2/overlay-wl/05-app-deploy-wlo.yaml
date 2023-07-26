@@ -4,6 +4,8 @@ metadata:
     name: quicksec-jakarta
     annotations:
       argocd.argoproj.io/sync-wave: "5"
+    labels:
+      app: quicksec_wlo
 spec:
   license:
     accept: true
