@@ -9,3 +9,7 @@ patches:
 - path: image-patch.yaml
   target:
     kind: OpenLibertyApplication
+- path: mustgather-patch.yaml
+  target:
+    name: list-secrets-role-binding
+    kind: RoleBinding
