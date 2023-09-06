@@ -4,6 +4,7 @@ metadata:
   name: app-kustomize
 
 resources:
+- openldap/
 - db2/
 - jmeter/
 - mustgather/

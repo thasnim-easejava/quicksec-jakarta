@@ -26,15 +26,6 @@
 <!-- This property was set to set custom cookie name to avoid conflict when using SSO -->
 <!--<webAppSecurity useOnlyCustomCookieName="true" ssoCookieName="mstCookie"/> -->  
  
- <ssl id="LDAPSSLSettings" keyStoreRef="ldaptruststore" trustStoreRef="ldaptruststore" />
-    <keyStore id="ldaptruststore" location="/config/trustStore.jks" type="JKS" password="passw0rd" />
-	<ldapRegistry host="isdsldap11.fyre.ibm.com" baseDN="o=ibm,c=us" port="9636" ldapType="IBM Tivoli Directory Server" id="LDAP_tdirsrv" sslEnabled="true" name="o=ldap1" sslRef="LDAPSSLSettings">
-	 <failoverServers name="isdsldapsvt backup">
-	  <server host="isdsldap21.fyre.ibm.com" port="9636"/>
-	  <server host="isdsldap31.fyre.ibm.com" port="9636"/>
-	 </failoverServers>
-	</ldapRegistry> 
-	
 <!-- Replace DB server information below to connect to your own DB server -->
         <authData id="DBAuth" password="${env.DBPass}" user="${env.DBUser}"/>
 

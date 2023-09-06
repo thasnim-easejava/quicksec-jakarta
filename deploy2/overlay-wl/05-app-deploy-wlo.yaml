@@ -52,3 +52,11 @@ spec:
         secretKeyRef:
           name: db-credential
           key: dbpw
+    - name: ldapHost
+      value: 'openldap'
+    - name: ldapPort
+      value: "9636"
+    - name: ldapSSL
+      value: 'true'
+    - name: WLP_LOGGING_CONSOLE_FORMAT
+      value: 'simple'
