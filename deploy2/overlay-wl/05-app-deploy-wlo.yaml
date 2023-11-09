@@ -9,7 +9,7 @@ metadata:
 spec:
   license:
     accept: true
-  applicationImage: docker-na-public.artifactory.swg-devops.com/hyc-wassvt-team-image-registry-docker-local/quicksec/quicksec-jakarta:latest
+  applicationImage: na.artifactory.swg-devops.com/hyc-wassvt-team-image-registry-docker-local/quicksec/quicksec-jakarta:latest
   statefulSet: 
     storage:
       size: 2Gi
