@@ -1,18 +1,16 @@
 services: docker
 
 jdk:
-- openjdk8
+- openjdk11
 
 before_install:
-- sudo apt -y install python3 python3-pip
-- sudo pip3 install setuptools
-- sudo pip3 install --upgrade pip
-- sudo pip3 install --upgrade setuptools
-
-script:
-# Install Ansible.
-- pip3 install ansible
-
+- |
+  sudo apt -y install python3 python3-pip
+  sudo pip3 install setuptools
+  sudo pip3 install --upgrade pip
+  sudo pip3 install --upgrade setuptools
+  sudo pip3 install ansible
+install:
 - |
   git clone https://$GITHUB_TOKEN@github.ibm.com/was-svt/configs.git --branch main -q
   echo "$pw" > /tmp/.pw
@@ -20,31 +18,51 @@ script:
   # env vars from the configs repo CONT_REGISTRY HYCSVT and the user / token
   . /tmp/.registry
   docker login $CONT_REGISTRY -u $(cat /tmp/.user) -p $(cat /tmp/.token)
+  # cd back into the ee10 tree
+  cd ee10
+  mvn -q clean package
+  export DOCKER_BUILDKIT=1
+  export BUILDKIT_PROGRESS=plain
+env:
+  - MULTIARCH=true
 
-- export DOCKER_BUILDKIT=1
-- export BUILDKIT_PROGRESS=plain
-- mvn -q clean package
+jobs:
+  include:
+    - stage: build-app-image
+      script:
+      - |
+        docker build -t quicksec-jakarta -f Dockerfile --build-arg SKIP_FEATURE_INSTALL=true --build-arg FULL_IMAGE=true .
+        docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:latest
+        docker push $HYCSVT/quicksec/quicksec-jakarta:latest
+        docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:latest-amd64
+        docker push $HYCSVT/quicksec/quicksec-jakarta:latest-amd64
+      
+    - stage: build-app-image
+      if: env(MULTIARCH) = true
+      os: linux
+      arch: s390x
+      group: vms390
+      script:
+      - |
+        docker build -t quicksec-jakarta -f Dockerfile --build-arg SKIP_FEATURE_INSTALL=true --build-arg FULL_IMAGE=true .
+        docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:latest-s390x
+        docker push $HYCSVT/quicksec/quicksec-jakarta:latest-s390x
+    - stage: build-app-image
+      if: env(MULTIARCH) = true
+      os: linux
+      arch: ppc64le
+      group: power-focal
+      script:
+      - |
+        docker build -t quicksec-jakarta -f Dockerfile --build-arg SKIP_FEATURE_INSTALL=true --build-arg FULL_IMAGE=true .
+        docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:latest-ppc64le
+        docker push $HYCSVT/quicksec/quicksec-jakarta:latest-ppc64le
+    - stage: build-app-manifest
+      if: env(MULTIARCH) = true
+      script:
+      - |
+        docker manifest create $HYCSVT/quicksec/quicksec-jakarta:latest-ma $HYCSVT/quicksec/quicksec-jakarta:latest-amd64 $HYCSVT/quicksec/quicksec-jakarta:latest-ppc64le $HYCSVT/quicksec/quicksec-jakarta:latest-s390x
+        docker manifest inspect $HYCSVT/quicksec/quicksec-jakarta:latest-ma
+        docker manifest push $HYCSVT/quicksec/quicksec-jakarta:latest-ma
 
-# Pass variables from travis to create docker image from any base image and custom tag it 
-- docker build -t quicksec-jakarta -f Containerfile --secret id=token,src=/tmp/.token --secret id=user,src=/tmp/.user --build-arg FULL_IMAGE=false  --build-arg BASE_IMAGE=$BASE_IMAGE .
-- docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:$IMAGE_TAG
-- docker push  $HYCSVT/quicksec/quicksec-jakarta:$IMAGE_TAG
 
-
-# Build and tag application based on WebnSphere Liberty with latest java versions
-- docker build -t quicksec-jakarta -f Containerfile --secret id=token,src=/tmp/.token --secret id=user,src=/tmp/.user --build-arg FULL_IMAGE=true  --build-arg BASE_IMAGE="icr.io/appcafe/websphere-liberty:full-java17-openj9-ubi" .
-- docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:wl-jdk8-java17
-- docker push  $HYCSVT/quicksec/quicksec-jakarta:wl-jdk8-java17
-
-# Build and tag application based on Open Liberty with different java versions
-- docker build -t quicksec-jakarta -f Containerfile --secret id=token,src=/tmp/.token --secret id=user,src=/tmp/.user --build-arg FULL_IMAGE=false  --build-arg BASE_IMAGE="icr.io/appcafe/open-liberty:kernel-slim-java8-openj9-ubi" .
-- docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:ol-jdk8-java8
-- docker push  $HYCSVT/quicksec/quicksec-jakarta:ol-jdk8-java8
-
-- docker build -t quicksec-jakarta -f Containerfile --secret id=token,src=/tmp/.token --secret id=user,src=/tmp/.user --build-arg FULL_IMAGE=false  --build-arg BASE_IMAGE="icr.io/appcafe/open-liberty:kernel-slim-java11-openj9-ubi" .
-- docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:ol-jdk8-java11
-- docker push  $HYCSVT/quicksec/quicksec-jakarta:ol-jdk8-java11
-
-- docker build -t quicksec-jakarta -f Containerfile --secret id=token,src=/tmp/.token --secret id=user,src=/tmp/.user --build-arg FULL_IMAGE=false  --build-arg BASE_IMAGE="icr.io/appcafe/open-liberty:kernel-slim-java17-openj9-ubi" .
-- docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:ol-jdk8-java17
-- docker push  $HYCSVT/quicksec/quicksec-jakarta:ol-jdk8-java17
