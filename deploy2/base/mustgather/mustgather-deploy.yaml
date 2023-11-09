@@ -20,7 +20,7 @@ spec:
       containers:
         - resources: {}
           name: mustgather
-          image: docker-na-public.artifactory.swg-devops.com/hyc-wassvt-team-image-registry-docker-local/mustgather:latest
+          image: na.artifactory.swg-devops.com/hyc-wassvt-team-image-registry-docker-local/mustgather:latest
           securityContext:
             runAsUser: 0
           ports:
