@@ -1,1 +1,1 @@
-- {op: replace,  path: /spec/applicationImage, value: "na.artifactory.swg-devops.com/hyc-wassvt-team-image-registry-docker-local/matest2/quicksec-jakarta:ol-jdk8-java17-ma"}
+- {op: replace,  path: /spec/applicationImage, value: "na.artifactory.swg-devops.com/hyc-wassvt-team-image-registry-docker-local/quicksec/quicksec-jakarta:ol-jdk8-java17"}
