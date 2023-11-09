@@ -41,7 +41,7 @@ spec:
               protocol: TCP
           imagePullPolicy: Always
           terminationMessagePolicy: File
-          image: docker-na-public.artifactory.swg-devops.com/hyc-wassvt-team-image-registry-docker-local/svt-openldap/svt-openldap
+          image: na.artifactory.swg-devops.com/hyc-wassvt-team-image-registry-docker-local/svt-openldap/svt-openldap
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
