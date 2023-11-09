@@ -15,6 +15,7 @@ spec:
       size: 2Gi
       mountPath: "/logs"
   createKnativeService: false
+  manageLTPA: true
   expose: true
   serviceability:
     size: 2Gi  
