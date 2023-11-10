@@ -1,7 +1,7 @@
 services: docker
 
 jdk:
-- openjdk11
+- openjdk8
 
 before_install:
 - |
@@ -24,7 +24,7 @@ install:
   export DOCKER_BUILDKIT=1
   export BUILDKIT_PROGRESS=plain
 env:
-  - MULTIARCH=true
+  - MULTIARCH=false
 
 jobs:
   include:
@@ -32,8 +32,8 @@ jobs:
       script:
       - |
         docker build -t quicksec-jakarta -f Containerfile --secret id=token,src=/tmp/.token --secret id=user,src=/tmp/.user --build-arg FULL_IMAGE=true  --build-arg BASE_IMAGE="icr.io/appcafe/websphere-liberty:full-java17-openj9-ubi" .
-        docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:latest-amd64
-        docker push $HYCSVT/quicksec/quicksec-jakarta:latest-amd64
+        docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:latest-amd64-j8
+        docker push $HYCSVT/quicksec/quicksec-jakarta:latest-amd64-j8
        
     - stage: build-app-image
       if: env(MULTIARCH) = true
