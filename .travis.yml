@@ -31,7 +31,7 @@ jobs:
     - stage: build-app-image
       script:
       - |
-        docker build -t quicksec-jakarta -f Containerfile --secret id=token,src=/tmp/.token --secret id=user,src=/tmp/.user --build-arg FULL_IMAGE=true  --build-arg BASE_IMAGE="icr.io/appcafe/websphere-liberty:full-java17-openj9-ubi
+        docker build -t quicksec-jakarta -f Containerfile --secret id=token,src=/tmp/.token --secret id=user,src=/tmp/.user --build-arg FULL_IMAGE=true  --build-arg BASE_IMAGE="icr.io/appcafe/websphere-liberty:full-java17-openj9-ubi" .
         docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:latest-amd64
         docker push $HYCSVT/quicksec/quicksec-jakarta:latest-amd64
        
@@ -42,7 +42,7 @@ jobs:
       group: vms390
       script:
       - |
-        docker build -t quicksec-jakarta -f Containerfile --secret id=token,src=/tmp/.token --secret id=user,src=/tmp/.user --build-arg FULL_IMAGE=true  --build-arg BASE_IMAGE="icr.io/appcafe/websphere-liberty:full-java17-openj9-ubi
+        docker build -t quicksec-jakarta -f Containerfile --secret id=token,src=/tmp/.token --secret id=user,src=/tmp/.user --build-arg FULL_IMAGE=true  --build-arg BASE_IMAGE="icr.io/appcafe/websphere-liberty:full-java17-openj9-ubi" .
         docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:latest-s390x
         docker push $HYCSVT/quicksec/quicksec-jakarta:latest-s390x 
         
@@ -53,7 +53,7 @@ jobs:
       group: power-focal
       script:
       - |
-        docker build -t quicksec-jakarta -f Containerfile --secret id=token,src=/tmp/.token --secret id=user,src=/tmp/.user --build-arg FULL_IMAGE=true  --build-arg BASE_IMAGE="icr.io/appcafe/websphere-liberty:full-java17-openj9-ubi
+        docker build -t quicksec-jakarta -f Containerfile --secret id=token,src=/tmp/.token --secret id=user,src=/tmp/.user --build-arg FULL_IMAGE=true  --build-arg BASE_IMAGE="icr.io/appcafe/websphere-liberty:full-java17-openj9-ubi" .
         docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:latest-ppc64le
         docker push $HYCSVT/quicksec/quicksec-jakarta:latest-ppc64le 
         
