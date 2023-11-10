@@ -32,11 +32,9 @@ jobs:
       script:
       - |
         docker build -t quicksec-jakarta -f Containerfile --build-arg SKIP_FEATURE_INSTALL=true --build-arg FULL_IMAGE=true .
-        docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:latest
-        docker push $HYCSVT/quicksec/quicksec-jakarta:latest
         docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:latest-amd64
         docker push $HYCSVT/quicksec/quicksec-jakarta:latest-amd64
-      
+       
     - stage: build-app-image
       if: env(MULTIARCH) = true
       os: linux
@@ -46,7 +44,8 @@ jobs:
       - |
         docker build -t quicksec-jakarta -f Containerfile --build-arg SKIP_FEATURE_INSTALL=true --build-arg FULL_IMAGE=true .
         docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:latest-s390x
-        docker push $HYCSVT/quicksec/quicksec-jakarta:latest-s390x
+        docker push $HYCSVT/quicksec/quicksec-jakarta:latest-s390x 
+        
     - stage: build-app-image
       if: env(MULTIARCH) = true
       os: linux
@@ -56,7 +55,8 @@ jobs:
       - |
         docker build -t quicksec-jakarta -f Containerfile --build-arg SKIP_FEATURE_INSTALL=true --build-arg FULL_IMAGE=true .
         docker tag quicksec-jakarta $HYCSVT/quicksec/quicksec-jakarta:latest-ppc64le
-        docker push $HYCSVT/quicksec/quicksec-jakarta:latest-ppc64le
+        docker push $HYCSVT/quicksec/quicksec-jakarta:latest-ppc64le 
+        
     - stage: build-app-manifest
       if: env(MULTIARCH) = true
       script:
