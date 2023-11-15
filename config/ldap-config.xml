@@ -7,7 +7,7 @@
     </featureManager>
 
     <ssl id="LDAPSSLSettings" sslProtocol="TLSv1.2" keyStoreRef="ldaptruststore" trustStoreRef="ldaptruststore" />
-    <keyStore id="ldaptruststore" location="${server.config.dir}/openldap.p12" type="PKCS12" password="{xor}Ej4xPjg6MjoxKw==" />
+    <keyStore id="ldaptruststore" location="${server.config.dir}/nest-ldap.p12" type="PKCS12" password="{xor}Ej4xPjg6MjoxKw==" />
 
     <ldapRegistry host="${env.ldapHost}" baseDN="o=ibm,c=us" port="${env.ldapPort}" ldapType="IBM Tivoli Directory Server" id="openldap" sslEnabled="${env.ldapSSL}" name="o=ldap1" sslRef="LDAPSSLSettings">
         <failoverServers name="failoverLdapServersGroup">
