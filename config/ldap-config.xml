@@ -11,10 +11,10 @@
 
     <ldapRegistry host="${env.ldapHost}" baseDN="o=ibm,c=us" port="${env.ldapPort}" ldapType="IBM Tivoli Directory Server" id="openldap" sslEnabled="${env.ldapSSL}" name="o=ldap1" sslRef="LDAPSSLSettings">
         <failoverServers name="failoverLdapServersGroup">
-		<server host="nest-ldap-svl-1.fyre.ibm.com  " port="${env.ldapPort}" />
-	    <server host="nest-ldap-1.fyre.ibm.com " port="${env.ldapPort}" />
-            <server host="nest-ldap-2.fyre.ibm.com " port="${env.ldapPort}" />
-            <server host="nest-ldap-3.fyre.ibm.com " port="${env.ldapPort}" />
+	    <server host="nest-ldap-svl-1.fyre.ibm.com" port="${env.ldapPort}" />
+	    <server host="nest-ldap-1.fyre.ibm.com" port="${env.ldapPort}" />
+            <server host="nest-ldap-2.fyre.ibm.com" port="${env.ldapPort}" />
+            <server host="nest-ldap-3.fyre.ibm.com" port="${env.ldapPort}" />
 	    </failoverServers>
     </ldapRegistry> 
 </server>
