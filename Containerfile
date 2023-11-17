@@ -30,6 +30,7 @@ COPY --chown=1001:0 ./db2jars /config/db2jars
 
 #truststore for LDAP
 COPY  --chown=1001:0 config/openldap.p12 /config/openldap.p12
+COPY  --chown=1001:0 config/nest-ldap.p12 /config/nest-ldap.p12
 
 # Setting for the verbose option
 ARG VERBOSE=true
