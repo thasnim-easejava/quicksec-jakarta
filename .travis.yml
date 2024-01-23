@@ -18,8 +18,6 @@ install:
   # env vars from the configs repo CONT_REGISTRY HYCSVT and the user / token
   . /tmp/.registry
   docker login $CONT_REGISTRY -u $(cat /tmp/.user) -p $(cat /tmp/.token)
-  # cd back into the ee10 tree
-  cd ee10
   mvn -q clean package
   export DOCKER_BUILDKIT=1
   export BUILDKIT_PROGRESS=plain
