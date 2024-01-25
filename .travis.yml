@@ -5,6 +5,11 @@ jdk:
 
 before_install:
 - |
+  if ! docker buildx version 2>/dev/null; then
+      sudo apt-get install -qq ca-certificates ;
+      sudo apt-get update -qq ;
+      sudo apt-get install docker-buildx ;
+  fi
   sudo apt -y install python3 python3-pip
   sudo pip3 install setuptools
   sudo pip3 install --upgrade pip
