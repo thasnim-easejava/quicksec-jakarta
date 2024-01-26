@@ -30,7 +30,7 @@
         <authData id="DBAuth" password="${env.DBPass}" user="${env.DBUser}"/>
 
 	<dataSource containerAuthDataRef="DBAuth" id="Messenger" jdbcDriverRef="JDBCDriver" jndiName="jdbc/Messenger" type="javax.sql.XADataSource">
-         <properties.db2.jcc databaseName="${env.DBName}" driverType="4" password="${env.DBPort}" portNumber="${env.DBPort}" serverName="${env.DBHost}"  />
+         <properties.db2.jcc databaseName="${env.DBName}" driverType="4" password="${env.DBPass}" portNumber="${env.DBPort}" serverName="${env.DBHost}"  />
 	</dataSource>
 
 	<jdbcDriver id="JDBCDriver">
