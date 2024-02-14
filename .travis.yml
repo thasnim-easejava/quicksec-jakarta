@@ -27,7 +27,7 @@ install:
   export DOCKER_BUILDKIT=1
   export BUILDKIT_PROGRESS=plain
 env:
-  - MULTIARCH=true
+  - MULTIARCH=false
 
 jobs:
   include:
