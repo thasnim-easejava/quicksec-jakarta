@@ -6,7 +6,7 @@ This is the version of QuickSec which is converted to Jakarta EE using the trans
 Java EE version of this application is at [quicksec-jee](https://github.ibm.com/was-svt/quicksec-jee)
  
  * Prerequisite: 
-   Server.xml is using NEST LDAP server. We can continue to use the LDAP server. 
+   Server.xml does not have LDAP configuration but a sepate [ldap-config.xml](https://github.ibm.com/was-svt/quicksec-jakarta/blob/main/config/ldap-config.xml) file is used for LDAP conffiguration. 
 
 1. This project uses travis to build the application ear file as well create a container image. Container images are pushed to artifactory at docker-na-public.artifactory.swg-devops.com/hyc-wassvt-team-image-registry-docker-local/nest-websphere-liberty/quicksec:`<tag>`. All the images for QuickSec can be found by logging into artifactory: https://na.artifactory.swg-devops.com/ui/repos/tree/General/hyc-wassvt-team-image-registry-docker-local
 3. Application builds different images based on 
