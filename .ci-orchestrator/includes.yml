@@ -1,0 +1,4 @@
+pipelineIncludes:
+- gitRepo: git@github.ibm.com:was-svt/wassvt-common
+  gitBranch: main
+  filePattern: ".ci-orchestrator/quicksec.yml"
