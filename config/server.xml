@@ -16,6 +16,13 @@
   </httpEndpoint>
 
   <mpMetrics authentication="false" />
+	
+	<!-- Basic Registry -->
+    <basicRegistry id="basic" realm="basicRealm">
+      <user name="Admin" password="websphere"/>
+      <user name="User1" password="websphere1"/>
+      <user name="User2" password="websphere2"/>
+    </basicRegistry>
   
 <!-- This is new property for 4Q to make JAPSIC application works like non-JAPIC -->
 <webAppSecurity useLtpaSSOForJaspic="true" />
