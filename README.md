@@ -2,7 +2,9 @@
 
 
 # quicksec-jakarta
-This is the version of QuickSec which is converted to Jakarta EE using the transformation tool as per [this TER](https://github.ibm.com/websphere/system-test/issues/403). This application is being complied and run with jdk 8 as there are still issues comlping java client with java 11.
+This is the version of QuickSec which is converted to Jakarta EE using the transformation tool as per [this TER](https://github.ibm.com/websphere/system-test/issues/403). This application is being complied and run with jdk 8 as there are still issues comlping java client with java 11. 
+
+EE10 version is updated to run with Java 18 as well.
 
 Java EE version of this application is at [quicksec-jee](https://github.ibm.com/was-svt/quicksec-jee)
  
