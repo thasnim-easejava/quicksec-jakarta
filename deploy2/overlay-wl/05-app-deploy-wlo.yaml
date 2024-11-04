@@ -34,7 +34,7 @@ spec:
       memory: 900Mi
     requests:
       cpu: 256m
-      memory: 600Mi
+      memory: 700Mi
  # probes:
  #   readiness: {}
  #   liveness: {}
