@@ -1,3 +1,5 @@
+This application is able to build with Jenkins EBC servers.
+
 [EBC Jenkins Pipeline](https://libh-proxy1.fyre.ibm.com/cognitive-dev/pipelineList.html?weeks=4&group=WAS-SVT)
 
 
