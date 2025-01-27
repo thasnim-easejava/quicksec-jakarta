@@ -18,6 +18,6 @@
 <!-- <module>quickSecCert</module>  -->
 <!--  <module>quickSecCustom</module>  -->
   	<module>QuickSec</module>
-<!--	<module>secLongRunClient</module> -->
+<!--	<module>secLongRunClient</module>   -->
   </modules>
 </project>
