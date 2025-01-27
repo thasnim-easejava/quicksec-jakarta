@@ -16,7 +16,7 @@
   	<module>quickSecForm</module>
   	<module>quickSecBasic</module>
 <!-- <module>quickSecCert</module>  -->
-<!--  <module>quickSecCustom</module> -->
+<!--  <module>quickSecCustom</module>   -->
   	<module>QuickSec</module>
 <!--	<module>secLongRunClient</module> -->
   </modules>
