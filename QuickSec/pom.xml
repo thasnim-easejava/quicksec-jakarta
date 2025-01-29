@@ -4,7 +4,7 @@
    <parent>
   	<groupId>com.ibm.ws.svt.qs</groupId>
   	<artifactId>quicksec-jakarta</artifactId>
-		<!--   <relativePath>quicksec-jee</relativePath>  -->
+		<!--   <relativePath>quicksec-jee</relativePath> -->
   	<version>1.0-SNAPSHOT</version>
   </parent>
   
